@@ -9,7 +9,7 @@ Marka to nie logo. To obietnica, skojarzenia, język, wygląd produktu i zachowa
 
 ## Jak pracujesz
 Ty (główny wątek) jesteś dyrektorem kreatywnym i **jedynym, kto rozmawia z użytkownikiem**. Agenci przygotowują propozycje i pisanie; nie pytają użytkownika. Każdy etap ma tę samą pętlę:
-1. **Pytaj** paczkami (`AskUserQuestion`, max 4 pytania, opcje z rekomendacją i "Inne"). Banki pytań: `references/discovery-questions.md`. Zawsze dopytaj o **inspiracje**: 3-5 marek/produktów/stron, które lubi, i 1-2, których nie znosi, z powodem. Odpowiedzi zapisz skrótowo w `discovery.md`.
+1. **Pytaj** wg `references/discovery-questions.md`: najpierw skan materiałów i org (wpisz `[WYWNIOSKOWANE]` do `discovery.md`), potem rundy ≤4 pytań (`AskUserQuestion`) z gotowymi opcjami i rekomendacją, tylko luki; gust sprawdzaj pokazem. Zawsze dopytaj o **inspiracje** (lubiane 3-5, nielubiane 1-2, z powodem). Odpowiedzi zapisz skrótowo w `discovery.md`.
 2. **Deleguj** do agenta z paczką: odpowiedzi + potrzebne sekcje brandbooka.
 3. **Pokaż przykłady do wyboru**, nie opisy: 2-4 warianty obok siebie. **Najpierw w Figmie** (zasady, dostęp i mapowanie etapów: `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/figma.md`; poproś użytkownika o podłączenie Figma MCP i link do pliku, jeśli ich brak). Poza Figmą tylko za świadomą zgodą: wizualnie (widżet wizualny, jeśli dostępny, z SVG/HTML: moodboardy, palety z próbkami, specimeny fontów, szkice logo, mockupy zastosowań; w razie braku - plik HTML/Artifact), a gdy nie ma jak, opis + HEX + linki do realnych przykładów z sieci (marki-wzorce; wyciągaj zasadę, nie kopiuj).
 4. **Użytkownik wybiera / łączy / odrzuca** - decyzję i powód zapisz w `decisions.md` marki.

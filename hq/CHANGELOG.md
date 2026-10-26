@@ -1,5 +1,8 @@
 # Changelog hq
 
+## 1.7.0 · 2026-10-26
+- Wywiad o marce przepisany (`brand/references/discovery-questions.md`): ~200 pytań z ankiety sprowadzone do 4 rund rdzenia (16 pytań) + rundy dodatkowe D1-D5 na żądanie; zasady: najpierw skan org/projektu i potwierdzanie zamiast pytania od zera, opcje z rekomendacją, "nie wiem" = propozycja, wizualne rundy pokazem; tryby Szybki/Standard/Pełny.
+
 ## 1.6.0 · 2026-10-26
 - Dobór motywu i wzorów marki: `brand/references/pattern.md` (proces W1-W8: wejście ze strategii, metafora, motyw z logo/produktu/wartości, typ wzoru, moduł i rytm, system 5 warstw w skalach mikro/średnia/makro, kolor wzoru, testy skali, powtarzalności, czytelności i mono; szablon zapisu).
 - Podpięte w `hq:brand` (B3), `brand-designer`, referencji `visual-and-voice.md` i sekcji 6 szablonu brandbooka.

@@ -1,38 +1,72 @@
-# Banki pytań (paczki ≤4, z opcjami i rekomendacją; zawsze miejsce na "Inne")
+# Wywiad o marce: przewodnik rozmowy (rundy ≤4 pytań, z propozycjami)
 
-Zadawaj tylko to, czego brakuje; nie pytaj o rzeczy już zapisane w `discovery.md`. Gdy użytkownik nie wie: zaproponuj 2-3 opcje z przykładami i zapytaj, która "bliżej".
+Cel: użytkownik odpowiada krótko i z przyjemnością, a Ty wiesz wszystko, co potrzebne. Z ~200 pytań zostają **cztery rundy rdzenia (16 pytań)** + rundy dodatkowe tylko na żądanie lub gdy brak danych.
 
-## B0 Wywiad
-1. Czym jest marka (firma/organizacja/projekt/produkt) i do czego służy? Od kiedy, jaka historia?
-2. Kto jest klientem/odbiorcą? Co mu przeszkadza dziś, czego potrzebuje? (kilka typów jeśli są)
-3. Konkurencja i marki "sąsiednie": 3-5 nazw. Co robią dobrze, co Cię w nich irytuje?
-4. Ograniczenia: budżet, termin, języki/kraje, kanały (www, app, druk, produkt, event), czy istnieją materiały (logo, kolory) do zachowania lub porzucenia.
-5. **Inspiracje:** 3-5 marek, produktów, stron lub miejsc, które Ci się podobają (dowolna branża) + 1-2, których nie znosisz. Dla każdej jedno zdanie "dlaczego". (Możesz wkleić linki lub obrazy.)
-Uzupełnij badaniami: WebSearch konkurencji i trendów, ze źródłami.
+## Zasady prowadzenia
+1. **Najpierw sam, potem pytaj.** Przed pierwszym pytaniem skanuj: brandbook org (`~/.hq/orgs/<slug>/brand/`), `.hq/brand/`, `.hq/context.md`, README, opisy w `package.json`/stronie/kodzie, `scripts/brandscan.py` (kolory i fonty w użyciu). Wynik wpisz do `discovery.md` z tagiem `[WYWNIOSKOWANE]`.
+2. **Potwierdzaj zamiast pytać od zera:** "Z materiałów rozumiem: [3-5 punktów]. Zgadza się?" (opcje: tak / popraw: ... ). Pytaj tylko o luki i sprzeczności.
+3. **Każde pytanie ma gotowe opcje** (2-4, Twoja hipoteza pierwsza z "(Rekomendacja)", plus "Inne" i "Nie wiem - zaproponuj"). Nigdy gołe "jaki styl lubisz?" - najpierw przykład.
+4. **Jedna runda = jeden temat**, ≤4 pytania (`AskUserQuestion`), nagłówek rundy z postępem ("Runda 2/4: klient"). Po rundzie jedno zdanie: co zapisałeś i co dalej.
+5. **Pytaj "dlaczego" tylko tam, gdzie to zmienia decyzję** (wartości, przewaga, granice). Gust (kolory, fonty) sprawdzaj pokazem, nie rozmową.
+6. **Nie wiem = Twoja robota:** zaproponuj 2-3 wersje z uzasadnieniem, zapisz wybraną jako `[ZAŁOŻENIE]` do potwierdzenia.
+7. **Pokazuj, nie opisuj** (Figma wg `figma.md`; bez niej widżet/HTML): skale osobowości jako suwaki, palety z próbkami i kontrastem, pary fontów jako specimeny, komunikat błędu w 3 tonach obok siebie, 2-4 moodboardy. Rund wizualnych nie mieszaj z rundami słownymi.
+8. **Zapis** w `discovery.md`: tabela `pole | odpowiedź | źródło (użytkownik/wywnioskowane/założenie)`; decyzje z powodem do `decisions.md`.
 
-## B1 Strategia
-1. Dlaczego marka istnieje (poza zarabianiem)? Jakiej zmiany chce? → misja; dokąd za 5 lat? → wizja.
-2. Trzy wartości: pokaż listę 12-15 kandydatów (np. precyzja, otwartość, wytrzymałość, radość, uczciwość, prostota, odwaga, troska…) i poproś o wybór 3 + zachowanie ilustrujące każdą.
-3. Osobowość - skale 1-5: formalna ↔ swobodna · ekspercka ↔ przystępna · emocjonalna ↔ rzeczowa · poważna ↔ zabawna · nowoczesna ↔ klasyczna · luksusowa ↔ dostępna. + "Jaką osobą byłaby marka na imprezie?"
-4. Pozycjonowanie: "Dla [kto], która potrzebuje [co], [marka] jest [kategoria], która [kluczowa korzyść], bo [dowód]." Zaproponuj 2 wersje do wyboru.
-5. Co marka obiecuje i czego NIGDY nie zrobi?
+## Tryb (zapytaj w pierwszej paczce razem z skalą)
+- **Szybki:** R0 + R1 + R3 (+ palety/fonty pokazem) ≈ 8 pytań. Mini i małe projekty.
+- **Standard:** R0-R5, runda wizualna R6 w B2-B3.
+- **Pełny:** + rundy dodatkowe D1-D5.
 
-## B2 Kierunek kreatywny (pokaż 2-4 moodboardy)
-Każdy moodboard: nazwa kierunku, 1 zdanie idei, paleta (4-6 próbek), przykład pary fontów, styl formy/ikon/zdjęć, przykład zastosowania, ryzyka. Pytania: który najbliżej? co z innego wziąć? co wyraźnie nie? Różnicuj kierunki mocno (np. technicznie-precyzyjny / ciepło-ludzki / odważny-sportowy / minimalistyczny-prestiżowy), nie warianty tego samego.
-Kryteria oceny (tabela 1-5): zgodność z pozycjonowaniem · czytelność dla grupy docelowej · wyróżnienie na tle konkurencji · zastosowanie w wielu kanałach · trwałość · łatwość wdrożenia · koszt produkcji.
+## R0 Start (0-1 paczka, głównie skan)
+Czyja marka (org/projekt), skala, punkt wyjścia (nowa / odświeżenie / rebranding), **co musi zostać** (nazwa, logo, kolor), termin i kto zatwierdza. Resztę weź ze skanu.
 
-## B3 System wizualny
-- **Logo:** typ (znak słowny / sygnet + napis / monogram / emblemat), co ma mówić, czy musi działać jako ikona aplikacji / mała etykieta / sitodruk / haft / grawer, preferencje formy (geometryczna, organiczna, litery). Pokaż 3-4 szkice SVG, poproś o wybór i uwagi, iteruj.
-- **Kolory:** emocje i skojarzenia, kolory do unikania (branża, kultura), tryb jasny/ciemny, druk (CMYK/Pantone) czy tylko ekran, kolory stanów. Pokaż 2-3 palety z próbkami i wynikami kontrastu.
-- **Typografia:** charakter (neutralna / z osobowością / techniczna / elegancka), języki i znaki diakrytyczne (polskie!), ekran vs druk, preferencja darmowych (Google Fonts) czy płatnych. Pokaż specimeny 2-3 par.
-- **Wzory:** czy marka ma mieć rozpoznawalny wzór bez logo, z czego (logo, produkt, proces, wartość), geometryczny/organiczny/teksturalny, gdzie ma się pojawiać (proces: `pattern.md`).
-- **Fotografia/ilustracje/ikony** (proces: `imagery.md`): naturalne vs studyjne vs techniczne, ludzie tak/nie, styl ikon (linia/pełne/zaokrąglone), czego unikać.
+## R1 Fundament (B0)
+1. Co robi marka - jednym zdaniem dla osoby spoza branży? (pokaż Twoją wersję z materiałów)
+2. Jaki problem rozwiązuje i dla kogo? (opcje z hipotez)
+3. Po co istnieje poza zarabianiem / jakiej zmiany chce? → misja; gdzie za 3-5 lat? → wizja (2 wersje do wyboru)
+4. Czym jest lepsza od alternatyw i czym to udowodni (wyniki, opinie, doświadczenie, dane)? → przewaga + dowód
 
-## B4 Język
-Nazwa (jeśli potrzebna): kryteria + 5-10 propozycji z uzasadnieniem, sprawdzenie wstępne (domena, kolizje, znaczenia w innych językach) · Hasło: 3-5 wariantów · Głos: przykłady jednego komunikatu w 3 tonach do wyboru (np. błąd: sucho / ciepło / z humorem) · Słowa preferowane i zakazane · Forma zwracania się (Ty/Pan/Pani) · Zasady zapisu nazwy.
+## R2 Klient i rynek (B0)
+1. Kto jest idealnym klientem (i kto płaci, jeśli ktoś inny)? Pokaż 2-3 typy, zaznacz główny.
+2. Co go blokuje przed wyborem i co przeważa na korzyść? (lista typowych obiekcji do zaznaczenia)
+3. 3 główne marki konkurencyjne/sąsiednie: co robią dobrze, co źle? (propozycje z WebSearch do potwierdzenia)
+4. Gdzie jest wolna przestrzeń? 2-3 pozycjonowania do wyboru: "Dla [kto], która potrzebuje [co], [marka] jest [kategoria], która [korzyść], bo [dowód]."
 
-## B5 Zastosowania
-Które kanały realnie będą? (tylko je testuj) Pokaż mockupy; pytania: co działa, co nie, co poprawić. Dla produktu/urządzenia: oznaczenia na obudowie, ekran startowy, komunikaty, LED/dźwięk (patrz `design-feel.md` w `hq:product`), opakowanie, instrukcja.
+## R3 Wartości i granice (B1)
+1. Wybierz 3 wartości z 12-15 kandydatów (precyzja, otwartość, wytrzymałość, radość, uczciwość, prostota, odwaga, troska...) + po jednym zachowaniu, które je pokazuje.
+2. Jak klient ma opisać markę w 3-5 słowach? (lista przymiotników do wyboru)
+3. Czego marka **nigdy** nie zrobi / nie chce przypominać (skojarzenia, słowa, marki, kolory)?
+4. Co jest dla marki najważniejsze: cena / jakość / szybkość / zaufanie / innowacja / relacja (wybierz 2).
 
-## B6-B8
-Kto jest właścicielem marki i zatwierdza materiały? Gdzie leżą zasoby? Jak często przegląd? Kto ma dostęp?
+## R4 Osobowość i głos (B1/B4)
+1. Skale 1-5 (widżet, 6 suwaków): formalna↔swobodna · ekspercka↔przystępna · emocjonalna↔rzeczowa · poważna↔zabawna · nowoczesna↔klasyczna · luksusowa↔dostępna.
+2. Komunikat błędu w 3 tonach obok siebie (sucho / ciepło / z humorem): który to Wy?
+3. Forma: Ty / Pan-Pani; żargon: tak / tylko z objaśnieniem / nie.
+4. Słowa preferowane i zakazane (zaproponuj po 5, użytkownik poprawia).
+
+## R5 Inspiracje i kontekst użycia (B0/B2)
+1. 3-5 lubianych marek/produktów/stron (dowolna branża) + powód jednym zdaniem; linki lub obrazy mile widziane.
+2. 1-2 nielubiane + powód.
+3. Gdzie marka będzie żyć: www / aplikacja / sklep / druk / opakowanie / produkt fizyczny / event / merch / wideo (zaznacz; testujesz tylko te).
+4. Języki i kraje; przyszłość: nowe produkty, submarki, ekspansja (tak/nie/możliwe) - ile elastyczności musi mieć system.
+
+## R6 Runda wizualna (B2-B3, tylko pokazem)
+Kolejność, każdy krok = 2-4 warianty obok siebie, wybór + uwaga, zapis w `decisions.md`:
+1. **Kierunek:** moodboardy (nazwa, idea, paleta 4-6, para fontów, forma, mockup, ryzyko) - różnicuj mocno.
+2. **Logo:** typ (słowny / sygnet / monogram / emblemat), szkice SVG, test małego rozmiaru i mono (`logo.md`).
+3. **Kolor:** 2-3 palety z próbkami i kontrastem, tryb ciemny, druk (`color.md`).
+4. **Fonty:** 2-3 specimeny z polskimi znakami i licencją (`typography.md`).
+5. **Zdjęcia/ilustracje/ikony/wzory:** tablice stylu, "tak / nie" (`imagery.md`, `pattern.md`).
+Kryteria oceny (1-5): zgodność z pozycjonowaniem · czytelność dla odbiorcy · wyróżnienie · wielokanałowość · trwałość · koszt wdrożenia.
+
+## Rundy dodatkowe (tylko na żądanie lub gdy brakuje danych)
+- **D1 Historia:** start, przełomowy moment, pierwszy klient, co niezmienne, co opowiadać a czego nie (materiał na narrację).
+- **D2 Dowody:** liczby, opinie, case studies, certyfikaty, nagrody, co klienci chwalą i krytykują.
+- **D3 Percepcja klientów:** jak obecnie postrzegają markę, jak opisaliby ją koledze, co by im brakowało, czy polecą (propozycja: krótka ankieta/wywiady 5-8 osób; bez danych nie zgaduj).
+- **D4 Spójność (audyt):** gdzie marka jest niespójna, kto za nią odpowiada (z `brandscan.py` i przeglądu materiałów, nie z pamięci użytkownika).
+- **D5 Ryzyko prawne:** dostępność nazwy, domeny, znaku towarowego, podobne marki - **DO WERYFIKACJI** u specjalisty.
+
+## Po etapach (B4-B8)
+- B4: nazwa (kryteria + 5-10 propozycji z wstępnym sprawdzeniem), hasło (3-5 wariantów), zasady zapisu.
+- B5: mockupy tylko wybranych kanałów; pytania: co działa, co nie, co poprawić. Produkt: oznaczenia, ekran startowy, LED/dźwięk (`design-feel.md` w `hq:product`), opakowanie, instrukcja.
+- B6-B8: właściciel marki i zatwierdzający, miejsce zasobów, rytm przeglądu (6-12 mies.), dostępy.
