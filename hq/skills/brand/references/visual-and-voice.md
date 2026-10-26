@@ -1,6 +1,7 @@
 # Reguły systemu wizualnego i języka (dla agentów marki)
 
 ## Logo - proces i testy
+Pełny proces, ocena, system znaków, ruch i prawo: `logo.md` w tym katalogu. Skrót:
 Szkice (3-4 koncepcje) -> wybór 1-2 -> opracowanie wektorowe -> testy: bardzo małe (np. 16 px ikona, 10 mm druk) i duże · czarne, białe, kolorowe, mono · jasne i ciemne tło · poziom, pion, sygnet · czytelność i dostępność. Wynik w brandbooku: wersje, pole ochronne (np. wysokość litery), minimalny rozmiar, proporcje, wyrównanie, **błędne użycia** (rozciąganie, zmiana kolorów, cienie, zbyt małe, nieczytelne tło), formaty (SVG, PNG, PDF).
 Szkice SVG tworzone tu są **koncepcjami**; finalny znak do produkcji wymaga dopracowania wektorowego (krzywe, optyka, kerning) i sprawdzenia prawnego - oznacz DO WERYFIKACJI.
 

@@ -1,6 +1,6 @@
 {
   "name": "hq",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "Centrum dowodzenia: orkiestrator dobiera skill i agenta, organizacje z dziedziczeniem marki, adopcja istniejących projektów, oszczędny kontekst",
   "author": {
     "name": "Maciej Bobrowski"

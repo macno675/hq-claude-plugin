@@ -1,5 +1,11 @@
 # Changelog hq
 
+## 1.4.0 · 2026-10-26
+- Szablon slajdów brandbooka `templates/brandbook-slides.md`: 15 ramek o stałym układzie (tytuł 2-liniowy, opis, zaokrąglony panel treści) w kolejności obowiązkowego zestawu; podpięty w `hq:brand`, `brand-designer`, referencji Figmy.
+
+## 1.3.0 · 2026-10-26
+- Lepsze tworzenie logo: `brand/references/logo.md` (proces L0-L12: brief, research konkurencji, kierunki i metafora, eksploracja 8+ szkiców, ocena, wektor mono-first, typografia, kolor, system znaków, kinetic, testy, prawo, pakiet końcowy, rola AI) i `scripts/logotest.py` (lint SVG + arkusz 16-128 px); podpięte w `hq:brand` i `brand-designer`.
+
 ## 1.2.0 · 2026-10-26
 - Branding, grafika, kolory i ekrany zawsze w Figmie: wspólna referencja `orchestrator/references/figma.md` (sprawdzenie Figma MCP, prośba o podłączenie i o niezbędne dane, mapowanie etapów marki i UX na Figmę, bezpieczeństwo zapisu, odmowa tylko jako zapisana decyzja); odwołania w orkiestratorze, `hq:brand`, `hq:ux-ui`, wpis `Figma:` w szablonie `context.md`.
 

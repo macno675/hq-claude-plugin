@@ -29,3 +29,5 @@ Figma jest źródłem prawdy dla wyglądu; `tokens.css` i `brandbook.md` zawiera
 - Przed pierwszym zapisem potwierdź docelowy plik; w cudzym lub istniejącym pliku twórz nową stronę, nie nadpisuj i nie usuwaj istniejącej pracy bez zgody.
 - Po każdym etapie pokaż zrzut (`get_screenshot`) i link; użytkownik zatwierdza bramkę w Figmie lub w rozmowie.
 - Czego Figma nie rozstrzyga: Pantone i CMYK do druku, znak towarowy, licencje fontów - oznacz **DO WERYFIKACJI**. Zdjęcia i ilustracje rastrowe: wstaw wygenerowane lub dostarczone (`generate_image`, `upload_assets`), nie udawaj ich wektorami.
+
+Brandbook jako slajdy: układ i kolejność 15 ramek w `<katalog hq>/templates/brandbook-slides.md` (ten sam układ dla każdej marki).
