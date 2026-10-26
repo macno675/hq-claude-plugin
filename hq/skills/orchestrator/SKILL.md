@@ -25,6 +25,7 @@ Wybierz **jeden** wiersz. Skill domenowy wczytaj (Skill) dopiero po wyborze; jeg
 | przegląd diffu, ryzyka zmiany | agent `hq:reviewer` |
 | szybki fakt, lookup, streszczenie dokumentu | agent `hq:researcher` |
 | research rynku/konkurencji/technologii, weryfikacja informacji, źródła przed decyzją | skill `hq:research` |
+| kupno, wybór produktu, szukanie sprzętu/oferty/dostawcy, porównanie ofert | skill `hq:research` (`references/purchasing.md`) |
 | nowy produkt/urządzenie wielodyscyplinarne, "od pomysłu do produkcji" | skill `hq:product` |
 | architektura systemu, moduły, interfejsy | agent `hq:system-architect` (w produkcie: przez `hq:product`) |
 | firmware, sterowniki, OTA | agent `hq:firmware-engineer` |

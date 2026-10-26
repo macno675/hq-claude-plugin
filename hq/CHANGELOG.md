@@ -1,5 +1,8 @@
 # Changelog hq
 
+## 1.9.0 · 2026-10-26
+- Zakupy i wybór produktu: `research/references/purchasing.md` (proces Z1-Z11: potrzeba, wymagania twarde/miękkie, TCO, lista kandydatów, opinie, dokumentacja, sprzedawca, dostępność i dostawa, gwarancja i serwis, macierz z wagami, zapis decyzji, checklist); podpięte w `hq:research` i routingu orkiestratora; zakup/płatność tylko po zgodzie człowieka.
+
 ## 1.8.0 · 2026-10-26
 - Orkiestrator wzmocniony wg analizy wzorców orkiestracji: krok 0 (cel, kryterium, ryzyko, plan >3 kroków), zgoda człowieka przed działaniami nieodwracalnymi/zewnętrznymi, najmniejsze uprawnienia w paczce, limity (≤3 równolegle, 1 ponowienie), recenzent niezależny dla wyników krytycznych, rozstrzyganie sprzecznych zwrotów, struktura odpowiedzi końcowej. Pominięte jako nieprzydatne w Claude Code: rejestry, circuit breakery, logi kosztów, warstwy pamięci (są w `.hq/`).
 
