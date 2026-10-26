@@ -20,3 +20,4 @@
 
 ## Klucz
 - <ścieżka> — <rola>   (tylko pliki, których agent realnie potrzebuje)
+- Figma: <URL pliku> · biblioteka: <tak/nie>   (projekty z wyglądem; skill orchestrator, references/figma.md)

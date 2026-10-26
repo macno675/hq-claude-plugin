@@ -14,7 +14,8 @@ UX odpowiada za **logikę doświadczenia** (czy użytkownik osiąga cel szybko i
 4. **Dostępność od początku**, nie przed publikacją.
 5. **Marka jest wejściem**: marka efektywna (linia `Marka:` z hooka, zasady w `hq:brand`) daje styl, rdzeń organizacji nienaruszalny; UI adaptuje go do czytelności, dostępności i responsywności, nie kopiuje mechanicznie. Brak brandbooka = zaproponuj `hq:brand` Mini.
 6. **Dodawaj tylko to, co poprawia zrozumienie.** Pytanie kontrolne: co mogę usunąć, żeby było jaśniej?
-7. **Programiści wcześnie** (wykonalność, wydajność, gotowe komponenty), nie dopiero przy handoffie.
+7. **Projektuj w Figmie.** Wireframe'y, ekrany, komponenty i tokeny powstają w Figmie (`${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/figma.md`: podłączenie Figma MCP, link do pliku); HTML tylko jako prototyp lub za zgodą użytkownika.
+8. **Programiści wcześnie** (wykonalność, wydajność, gotowe komponenty), nie dopiero przy handoffie.
 
 ## Jak pracujesz
 Ty (główny wątek) zadajesz użytkownikowi pytania (`AskUserQuestion`, paczki ≤4, z opcjami i rekomendacją) i **pokazujesz przykłady do wyboru** (widżet wizualny, jeśli dostępny, albo plik HTML do otwarcia w przeglądarce: wireframe'y, 2 warianty wizualne, prototyp). Agenci (`ux-designer`, `ui-designer`) przygotowują artefakty i nie pytają użytkownika. Artefakty w `.hq/ux-ui/`; decyzje i powody w `decisions.md` (wspólne z `.hq/product/` jeśli istnieje).

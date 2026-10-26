@@ -63,6 +63,7 @@ Paczka dla agenta, telegraficznie:
 - Cel (1 zdanie), ograniczenia, pliki/ścieżki, kryterium ukończenia.
 - Stała linia: "Czytaj fragmenty (grep, offset/limit), nie całe pliki; ogranicz wyniki poleceń (tail, tylko błędy); nie czytaj plików spoza listy; zwróć ≤N tokenów, bez kodu i logów."
 - Zadanie dotyka wyglądu, tekstów lub komunikacji: dołącz linię `Marka:` z hooka (tryb + ścieżki). Agent czyta pliki sam; nie wklejaj brandbooka.
+- **Branding, grafika, kolory, ekrany, mockupy = projektuj w Figmie.** Zanim ruszysz, przeczytaj `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/figma.md`: sprawdź dostęp do Figma MCP, poproś użytkownika o podłączenie i o to, czego koniecznie potrzeba (link do pliku, zasoby). Agenci nie mają Figmy - dają specyfikację, buduje główny wątek.
 - Proste zadanie: `model: haiku`; ważna decyzja na tanim agencie (np. researcher): `model: sonnet`.
 
 Równolegle tylko zadania niezależne i bez wspólnych plików.

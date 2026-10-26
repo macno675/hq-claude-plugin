@@ -1,5 +1,8 @@
 # Changelog hq
 
+## 1.2.0 · 2026-10-26
+- Branding, grafika, kolory i ekrany zawsze w Figmie: wspólna referencja `orchestrator/references/figma.md` (sprawdzenie Figma MCP, prośba o podłączenie i o niezbędne dane, mapowanie etapów marki i UX na Figmę, bezpieczeństwo zapisu, odmowa tylko jako zapisana decyzja); odwołania w orkiestratorze, `hq:brand`, `hq:ux-ui`, wpis `Figma:` w szablonie `context.md`.
+
 ## 1.1.0 · 2026-10-26
 - Orkiestrator nie ginie w długiej rozmowie: `hq:init` wpisuje do `CLAUDE.md` blok `hq-begin/end` (ładowany po /compact i /clear; w istniejącym pliku dopisuje tylko blok), hook co 6. wiadomość (`HQ_REMIND_EVERY`) przypomina o `hq:orchestrator` i agentach `hq:*`, a start sesji zgłasza brak bloku.
 
