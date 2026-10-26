@@ -4,6 +4,7 @@
 - Szablon slajdów brandbooka `templates/brandbook-slides.md`: 15 ramek o stałym układzie (tytuł 2-liniowy, opis, zaokrąglony panel treści) w kolejności obowiązkowego zestawu; podpięty w `hq:brand`, `brand-designer`, referencji Figmy.
 
 ## 1.3.0 · 2026-10-26
+- Bez osobnego taga i commita: zmiany weszły do wydania 1.4.0 (tag v1.4.0).
 - Lepsze tworzenie logo: `brand/references/logo.md` (proces L0-L12: brief, research konkurencji, kierunki i metafora, eksploracja 8+ szkiców, ocena, wektor mono-first, typografia, kolor, system znaków, kinetic, testy, prawo, pakiet końcowy, rola AI) i `scripts/logotest.py` (lint SVG + arkusz 16-128 px); podpięte w `hq:brand` i `brand-designer`.
 
 ## 1.2.0 · 2026-10-26
