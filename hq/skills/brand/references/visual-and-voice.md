@@ -13,16 +13,17 @@ Pełny proces T1-T10: `typography.md`.
 Max 2 rodziny (+ ewentualnie mono). Rola: nagłówki, tekst, interfejs. Wymagane: polskie znaki, grubości, hierarchia z wartościami (rozmiar/interlinia/odstępy), skala typograficzna, zasady ekran/druk, licencje (preferuj otwarte: Google Fonts/SIL OFL; płatne - opisz licencję), fonty zastępcze systemowe.
 
 ## Fotografia, ilustracja, ikony
+Pełny proces G1-G9 (emocje, słownik wizualny, moodboard, światło, kompozycja, retusz, stock, shot list, mockupy): `imagery.md`.
 Emocje, światło, kadry, kolorystyka, tematy; co wolno i czego nie (z przykładami błędnymi). Ikony: siatka, grubość linii, narożniki, wypełnienie - jeden styl.
 
 ## Elementy pomocnicze
-Siatki, marginesy, odstępy (skala np. 4/8/16), wzory, linie, animacje (czas, easing, zasady), komponenty UI (przyciski, pola, stany), szablony dokumentów i prezentacji.
+Wzory i motyw: pełny proces W1-W8 w `pattern.md`. Siatki, marginesy, odstępy (skala np. 4/8/16), linie, animacje (czas, easing, zasady), komponenty UI (przyciski, pola, stany), szablony dokumentów i prezentacji.
 
 ## Język
 Głos = cechy osobowości przełożone na zdania. Zapis: nazwa marki (wielkość liter), skróty, forma zwracania się. Słownik: preferowane / zakazane. Komunikaty: każdy typ (powitanie, sukces, błąd, ostrzeżenie, pusty stan, reklamacja, status, aktualizacja) w 1-2 przykładach "tak" i "nie". Błędy: mówią co się stało i co zrobić, bez winienia użytkownika. Nazwa: łatwa do wymówienia i zapamiętania, możliwa do ochrony, dostępna domena, bez niechcianych znaczeń w innych językach; wstępne sprawdzenie w wyszukiwarce, rejestrach znaków (np. EUIPO, UPRP) i domenach - **to nie porada prawna**, ostateczną ocenę robi rzecznik patentowy (listy IP: `hq:legal-safety`).
 
 ## Zastosowania - zasada
-Kierunek musi działać nie tylko na plakacie: mały ekran, opakowanie, dokumentacja, produkt. Pokaż mockup dla każdego realnego kanału i zapisz poprawki w brandbooku.
+Kierunek musi działać nie tylko na plakacie: mały ekran, opakowanie, dokumentacja, produkt. Pokaż mockup (zasady w `imagery.md`) dla każdego realnego kanału i zapisz poprawki w brandbooku.
 
 ## Spójność i utrzymanie
 Wersjonowanie (numer + data), jeden właściciel, proces wyjątków, przegląd okresowy. Odświeżenie (kolory, typografia, szablony) vs rebranding (zmiana strategii, oferty, grupy lub pozycji).

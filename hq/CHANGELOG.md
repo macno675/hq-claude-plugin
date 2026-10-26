@@ -1,5 +1,10 @@
 # Changelog hq
 
+## 1.6.0 · 2026-10-26
+- Dobór motywu i wzorów marki: `brand/references/pattern.md` (proces W1-W8: wejście ze strategii, metafora, motyw z logo/produktu/wartości, typ wzoru, moduł i rytm, system 5 warstw w skalach mikro/średnia/makro, kolor wzoru, testy skali, powtarzalności, czytelności i mono; szablon zapisu).
+- Podpięte w `hq:brand` (B3), `brand-designer`, referencji `visual-and-voice.md` i sekcji 6 szablonu brandbooka.
+- Styl graficzny, zdjęcia, grafiki i mockupy: `brand/references/imagery.md` (proces G1-G9: emocje, słownik wizualny, moodboard, zasady fotografii, styl ilustracji/ikon/3D, mockupy jako test, shot list, stock, szablon zapisu); podpięte w B3, B5, `brand-designer`, `visual-and-voice.md`, sekcji 7 brandbooka i opisach slajdów 7-8.
+
 ## 1.5.0 · 2026-10-26
 - Profesjonalny dobór kolorów: `brand/references/color.md` (proces K1-K8: strategia, mapa kategorii, harmonie, role, stany, wersje jasna/ciemna/mono, testy kontrastu i punktów styku, zapis).
 - Profesjonalny dobór fontów: `brand/references/typography.md` (proces T1-T10: role, parowanie, źródła z jasną licencją, polskie znaki, skala, licencja).

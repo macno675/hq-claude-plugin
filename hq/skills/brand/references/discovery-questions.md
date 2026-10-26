@@ -25,7 +25,8 @@ Kryteria oceny (tabela 1-5): zgodność z pozycjonowaniem · czytelność dla gr
 - **Logo:** typ (znak słowny / sygnet + napis / monogram / emblemat), co ma mówić, czy musi działać jako ikona aplikacji / mała etykieta / sitodruk / haft / grawer, preferencje formy (geometryczna, organiczna, litery). Pokaż 3-4 szkice SVG, poproś o wybór i uwagi, iteruj.
 - **Kolory:** emocje i skojarzenia, kolory do unikania (branża, kultura), tryb jasny/ciemny, druk (CMYK/Pantone) czy tylko ekran, kolory stanów. Pokaż 2-3 palety z próbkami i wynikami kontrastu.
 - **Typografia:** charakter (neutralna / z osobowością / techniczna / elegancka), języki i znaki diakrytyczne (polskie!), ekran vs druk, preferencja darmowych (Google Fonts) czy płatnych. Pokaż specimeny 2-3 par.
-- **Fotografia/ilustracje/ikony:** naturalne vs studyjne vs techniczne, ludzie tak/nie, styl ikon (linia/pełne/zaokrąglone), czego unikać.
+- **Wzory:** czy marka ma mieć rozpoznawalny wzór bez logo, z czego (logo, produkt, proces, wartość), geometryczny/organiczny/teksturalny, gdzie ma się pojawiać (proces: `pattern.md`).
+- **Fotografia/ilustracje/ikony** (proces: `imagery.md`): naturalne vs studyjne vs techniczne, ludzie tak/nie, styl ikon (linia/pełne/zaokrąglone), czego unikać.
 
 ## B4 Język
 Nazwa (jeśli potrzebna): kryteria + 5-10 propozycji z uzasadnieniem, sprawdzenie wstępne (domena, kolizje, znaczenia w innych językach) · Hasło: 3-5 wariantów · Głos: przykłady jednego komunikatu w 3 tonach do wyboru (np. błąd: sucho / ciepło / z humorem) · Słowa preferowane i zakazane · Forma zwracania się (Ty/Pan/Pani) · Zasady zapisu nazwy.

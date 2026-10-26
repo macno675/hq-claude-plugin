@@ -19,8 +19,8 @@ Jeden plik Figma, **15 slajdów tego samego układu**, powtarzalnych dla każdej
 | 4 | Primary Typeface | nazwa fontu duża, warianty Bold/Medium/Regular/Light, pełny zestaw znaków (A-Z, a-z, 0-9, symbole, polskie znaki) |
 | 5 | Typeface Hierarchy | tabela wierszy: Display, H1, H2, H3, H4, Paragraph, Caption; kolumny Size (px) i Letter Spacing; każdy wiersz renderowany w swoim rozmiarze |
 | 6 | Color Palette | 4-5 pionowych pasów równej szerokości; nazwa (2 linie) u góry, RGB i HEX u dołu; role: ciemny, ciemny akcentowy, kolor główny, jasny |
-| 7 | Brand Imagery | mozaika 5 zdjęć/obrazów w jednym stylu (spójne światło, kadr, tonacja z palety) |
-| 8 | Graphic Patterns | wzór wyprowadzony z logomarka (linie, powtarzalny moduł) na ciemnym polu palety |
+| 7 | Brand Imagery (zasady: `imagery.md`) | mozaika 5 zdjęć/obrazów w jednym stylu (spójne światło, kadr, tonacja z palety) |
+| 8 | Graphic Patterns (zasady: `pattern.md`) | wzór wyprowadzony z logomarka (linie, powtarzalny moduł) na ciemnym polu palety |
 | 9 | Social Media Creatives | 4 posty w ramkach aplikacji na ciemnym tle w kolorze marki; różne typy: zdjęcie+hasło, dane, cytat, liczba |
 | 10 | Social Media Page Banners | 2 profile (np. LinkedIn, X): baner z patternem, awatar logomark, hasło |
 | 11 | Brand Mockups | 3 kolumny: ikona aplikacji, urządzenie/produkt, strona www |

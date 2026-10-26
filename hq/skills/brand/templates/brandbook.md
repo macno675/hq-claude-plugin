@@ -28,10 +28,10 @@ Uzasadnienie ze strategii i mapa kategorii (co zajęte, czym się różnimy) · 
 Uzasadnienie ze strategii i mapa kategorii · Font podstawowy · display · mono/liczby · pomocniczy · nagłówki · tekst · interfejs · Dozwolone grubości · Hierarchia (H1-H4, tekst, podpis: rozmiar/interlinia/odstęp) · Zasady ekran vs druk · Licencje i źródło fontów · Zamienniki awaryjne
 
 ## 6. Grafika
-Ikony (styl, siatka, grubość linii) · Ilustracje · Wzory i tekstury · Linie, ramki, siatki, marginesy · Zasady kompozycji · Animacje · Elementy interfejsu · Szablony
+Ikony (styl, siatka, grubość linii) · Ilustracje · Wzory i tekstury (motyw główny: pochodzenie/kształt/znaczenie; wzór główny, pomocniczy, akcentowy, teksturalny, ruchomy: zastosowanie/skala/kolory; wersje mono; zasady i błędne użycia) · Linie, ramki, siatki, marginesy · Zasady kompozycji · Animacje · Elementy interfejsu · Szablony
 
 ## 7. Fotografia
-Klimat i emocje · Światło · Kadrowanie · Kolorystyka · Tematy · Przykłady zgodne i niezgodne · Czego nie publikować
+Klimat i emocje · słownik wizualny · typy zdjęć · Światło (rodzaj, temperatura) · Kompozycja i kadrowanie · Kolorystyka/LUT · Tła · Ludzie · Retusz (dozwolony/zakazany) · Stock i licencje · Shot list · Tematy · Przykłady zgodne i niezgodne · Czego nie publikować
 
 ## 8. Język i ton
 Głos marki · Zasady pisania (zapis nazwy, wielkość liter, skróty, forma zwracania się) · Słownictwo preferowane i zakazane · Hasło i narracja · Przykłady komunikatów (powitanie, sukces, błąd, reklamacja, status zamówienia, aktualizacja) · Obsługa klienta · Media społecznościowe
