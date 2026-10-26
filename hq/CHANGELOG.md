@@ -1,5 +1,10 @@
 # Changelog hq
 
+## 1.5.0 · 2026-10-26
+- Profesjonalny dobór kolorów: `brand/references/color.md` (proces K1-K8: strategia, mapa kategorii, harmonie, role, stany, wersje jasna/ciemna/mono, testy kontrastu i punktów styku, zapis).
+- Profesjonalny dobór fontów: `brand/references/typography.md` (proces T1-T10: role, parowanie, źródła z jasną licencją, polskie znaki, skala, licencja).
+- Podpięte w `hq:brand` (B3), `brand-designer` i szablonie brandbooka (sekcje 4-5).
+
 ## 1.4.0 · 2026-10-26
 - Szablon slajdów brandbooka `templates/brandbook-slides.md`: 15 ramek o stałym układzie (tytuł 2-liniowy, opis, zaokrąglony panel treści) w kolejności obowiązkowego zestawu; podpięty w `hq:brand`, `brand-designer`, referencji Figmy.
 

@@ -22,10 +22,10 @@ Wersja podstawowa · pozioma · pionowa · sygnet · mono · na ciemnym tle · P
 
 ## 4. Kolory
 Podstawowe · pomocnicze · akcentowe · neutralne · stanów (sukces/ostrzeżenie/błąd) — tabela: nazwa | rola | HEX | RGB | CMYK | Pantone | zastosowanie
-Proporcje użycia · Zasady kontrastu (wyniki z contrast.py) · Poprawne i błędne połączenia
+Uzasadnienie ze strategii i mapa kategorii (co zajęte, czym się różnimy) · Wersje na jasne/ciemne tło, mono, tryb ciemny · Proporcje użycia (60/30/10) · Zasady kontrastu (wyniki z contrast.py) · Poprawne i błędne połączenia
 
 ## 5. Typografia
-Font podstawowy · pomocniczy · nagłówki · tekst · interfejs · Dozwolone grubości · Hierarchia (H1-H4, tekst, podpis: rozmiar/interlinia/odstęp) · Zasady ekran vs druk · Licencje i źródło fontów · Zamienniki awaryjne
+Uzasadnienie ze strategii i mapa kategorii · Font podstawowy · display · mono/liczby · pomocniczy · nagłówki · tekst · interfejs · Dozwolone grubości · Hierarchia (H1-H4, tekst, podpis: rozmiar/interlinia/odstęp) · Zasady ekran vs druk · Licencje i źródło fontów · Zamienniki awaryjne
 
 ## 6. Grafika
 Ikony (styl, siatka, grubość linii) · Ilustracje · Wzory i tekstury · Linie, ramki, siatki, marginesy · Zasady kompozycji · Animacje · Elementy interfejsu · Szablony

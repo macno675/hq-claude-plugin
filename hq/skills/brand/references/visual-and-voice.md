@@ -6,9 +6,10 @@ Szkice (3-4 koncepcje) -> wybór 1-2 -> opracowanie wektorowe -> testy: bardzo m
 Szkice SVG tworzone tu są **koncepcjami**; finalny znak do produkcji wymaga dopracowania wektorowego (krzywe, optyka, kerning) i sprawdzenia prawnego - oznacz DO WERYFIKACJI.
 
 ## Kolor
-Paleta wynika ze strategii, emocji, branży, czytelności i zastosowań, nie z gustu. Role: podstawowe (1-2) · pomocnicze · akcentowe (rzadko) · neutralne (skala szarości/odcienie) · stanów. Proporcje (np. 60/30/10). Zapis: HEX + RGB + CMYK + Pantone. CMYK i Pantone z konwersji są **przybliżone** (DO WERYFIKACJI na próbce wydruku). Kontrast: `python3 <katalog skilla>/scripts/contrast.py <HEX> <HEX> ...`; tekst zwykły co najmniej AA (4,5:1), duży tekst (3:1), cele: AAA tam, gdzie się da. Nie opieraj znaczenia wyłącznie na kolorze.
+Pełny proces K1-K8: `color.md`. Paleta wynika ze strategii, emocji, branży, czytelności i zastosowań, nie z gustu. Role: podstawowe (1-2) · pomocnicze · akcentowe (rzadko) · neutralne (skala szarości/odcienie) · stanów. Proporcje (np. 60/30/10). Zapis: HEX + RGB + CMYK + Pantone. CMYK i Pantone z konwersji są **przybliżone** (DO WERYFIKACJI na próbce wydruku). Kontrast: `python3 <katalog skilla>/scripts/contrast.py <HEX> <HEX> ...`; tekst zwykły co najmniej AA (4,5:1), duży tekst (3:1), cele: AAA tam, gdzie się da. Nie opieraj znaczenia wyłącznie na kolorze.
 
 ## Typografia
+Pełny proces T1-T10: `typography.md`.
 Max 2 rodziny (+ ewentualnie mono). Rola: nagłówki, tekst, interfejs. Wymagane: polskie znaki, grubości, hierarchia z wartościami (rozmiar/interlinia/odstępy), skala typograficzna, zasady ekran/druk, licencje (preferuj otwarte: Google Fonts/SIL OFL; płatne - opisz licencję), fonty zastępcze systemowe.
 
 ## Fotografia, ilustracja, ikony
