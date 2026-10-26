@@ -45,6 +45,7 @@ case "$1" in
     [ -f "$prof" ] && line="${line:+$line · }profil=.hq/brand/brand.md"
     [ -f "$DIR/.hq/brand/brandbook.md" ] && line="${line:+$line · }własny=.hq/brand/brandbook.md"
     [ -n "$line" ] && echo "[hq] Marka: $line"
+    grep -qs 'hq-begin' "$DIR/CLAUDE.md" || echo "[hq] Brak bloku hq w CLAUDE.md - uruchom hq:init (dopisze przypomnienie o orkiestratorze, trwa po /compact i /clear)."
     [ -f "$DIR/.hq/context.md" ] || { echo "[hq] Brak .hq/context.md - przy dłuższej pracy zaproponuj hq:init (adopcja istniejącego kodu i marki)."; exit 0; }
     cat "$DIR/.hq/context.md"
     [ -f "$DIR/.hq/handoff.md" ] && { echo; cat "$DIR/.hq/handoff.md"; }
@@ -53,7 +54,11 @@ case "$1" in
     command -v jq >/dev/null || exit 0
     f=$(jq -r '.transcript_path // empty' <<<"$in"); sid=$(jq -r '.session_id // "x"' <<<"$in")
     [ -f "$f" ] || exit 0
-    size=$(wc -c <"$f"); mark="${TMPDIR:-/tmp}/hq-ctx-$sid"; last=$(cat "$mark" 2>/dev/null || echo 0)
+    mark="${TMPDIR:-/tmp}/hq-ctx-$sid"
+    # Przypominajka co N-tą wiadomość: instrukcja ze startu ginie w długiej rozmowie.
+    n=$(( $(cat "$mark.n" 2>/dev/null || echo 0) + 1 )); echo "$n" >"$mark.n"
+    [ $((n % ${HQ_REMIND_EVERY:-6})) -eq 0 ] && echo "[hq] Przypomnienie: zadanie wieloetapowe lub domenowe (kod, marka, elektronika, PM, finanse, marketing...) zaczynaj od skilla hq:orchestrator i deleguj do agentów hq:*. Stan pracy: .hq/context.md."
+    size=$(wc -c <"$f"); last=$(cat "$mark" 2>/dev/null || echo 0)
     if [ "$size" -ge "$LIMIT" ] && [ "$size" -ge $((last + STEP)) ]; then
       echo "$size" >"$mark"
       echo "[hq] Rozmowa duża (~$((size / 4000))k tokenów). Po odpowiedzi na bieżącą prośbę zastosuj skill hq:context: zaktualizuj .hq/context.md i handoff.md, zaproponuj nowy czat (/rename, /clear) z linią startową."

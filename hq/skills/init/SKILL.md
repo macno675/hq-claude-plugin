@@ -8,7 +8,7 @@ argument-hint: "[nazwa projektu]"
 
 Cel: każdy czat w projekcie startuje tanio z `.hq/context.md` i zna organizację oraz markę. Działa w nowym, istniejącym i mini projekcie.
 
-0. **Już jest** `.hq/context.md`: nie nadpisuj. Pokaż 3 linie stanu, sprawdź tylko brakujące elementy (org, profil marki) i zakończ.
+0. **Już jest** `.hq/context.md`: nie nadpisuj. Pokaż 3 linie stanu, sprawdź tylko brakujące elementy (org, profil marki, blok hq w `CLAUDE.md`) i zakończ.
 1. **Rozpoznaj** (bez pytania użytkownika): organizacja z linii hooka `[hq] Organizacja:` (lub brak), rodzaj folderu:
    - pusty/nowy · istniejący kod (`git log -1`, manifesty: `package.json`, `pyproject.toml`, `Cargo.toml`, `go.mod`...) · materiały bez kodu (dokumenty, grafiki) · mini (1-3 pliki, krótkie zadanie).
 2. **Mini:** tylko `.hq/context.md` w 10 liniach (cel, następny krok). Bez pytań, bez CLAUDE.md, bez profilu marki (marka org z hooka i tak obowiązuje). Koniec.
@@ -20,7 +20,10 @@ Cel: każdy czat w projekcie startuje tanio z `.hq/context.md` i zna organizacj�
    - `.hq/handoff.md`: `Zrobione: init` / `Następne: <krok>` / `Blokery: brak`;
    - `.hq/org` (slug), tylko gdy projekt nie leży w ścieżkach organizacji;
    - `.hq/brand/brand.md` z `${CLAUDE_PLUGIN_ROOT}/templates/brand-profile.md`, gdy jest org lub własna marka (tylko tryb, rodzic i różnice);
-   - `CLAUDE.md` z `${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.md` tylko gdy go brak i użytkownik się zgodzi (polecenia wyczytane z repo). Istniejącego `CLAUDE.md` nie zmieniaj bez zgody.
+   - `CLAUDE.md` (obowiązkowo, bo ładuje się po każdym /compact i /clear, więc stale przypomina o hq):
+     brak pliku: utwórz z `${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.md` (polecenia wyczytane z repo).
+     plik istnieje: bez zmiany reszty dopisz na początku tylko blok `<!-- hq-begin -->...<!-- hq-end -->` z szablonu (gdy bloku brak; gdy jest, zaktualizuj tylko jego treść) i wspomnij o tym w raporcie.
+     Nie dotykaj treści poza znacznikami.
    Katalogów domenowych (`.hq/pm/`, `.hq/product/`...) nie zakładaj na zapas - tworzą je skille.
 6. **Raport** (max 6 linii): co powstało, organizacja i tryb marki, top 3 problemy z adopcji (kod, marka: liczba OBCY/DRYF), proponowany pierwszy krok. Naprawy tylko po zgodzie - prowadzi je `hq:orchestrator` (marka: `hq:brand` Audyt i naprawa).
 
