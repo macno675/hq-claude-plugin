@@ -1,0 +1,20 @@
+{
+  "name": "hq",
+  "version": "1.0.0",
+  "description": "Centrum dowodzenia: orkiestrator dobiera skill i agenta, organizacje z dziedziczeniem marki, adopcja istniejących projektów, oszczędny kontekst",
+  "author": {
+    "name": "Maciej Bobrowski"
+  },
+  "keywords": [
+    "orchestrator",
+    "agents",
+    "brand",
+    "organization",
+    "product",
+    "electronics",
+    "pm"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/macno675/hq-claude-plugin",
+  "repository": "https://github.com/macno675/hq-claude-plugin"
+}

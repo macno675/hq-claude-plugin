@@ -1,0 +1,7 @@
+# Prywatna pamięć i kopie autora - nie publikować
+/.hq/
+/.hq-backups/
+# Śmieci
+.DS_Store
+__pycache__/
+*.pyc

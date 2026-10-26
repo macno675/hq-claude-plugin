@@ -1,0 +1,13 @@
+{
+  "name": "hq-marketplace",
+  "description": "Plugin hq: orkiestrator, 37 agentów i skille domenowe z pamięcią projektu i organizacji",
+  "owner": { "name": "Maciej Bobrowski" },
+  "plugins": [
+    {
+      "name": "hq",
+      "source": "./hq",
+      "description": "Centrum dowodzenia: orkiestrator dobiera skill i agenta, organizacje i dziedziczenie marki, oszczędny kontekst",
+      "category": "productivity"
+    }
+  ]
+}
