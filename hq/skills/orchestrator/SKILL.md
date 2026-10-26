@@ -7,6 +7,10 @@ description: Użyj NAJPIERW przy zadaniu wieloetapowym, domenowym lub gdy nie wi
 
 Ty koordynujesz, agenci pracują. **Język:** odpowiadaj i twórz pliki `.hq/` w języku użytkownika (instrukcje pluginu są po polsku - to nie zmienia języka rozmowy); to samo każ agentom. Zadanie trywialne (1-2 edycje, jedno pytanie) zrób sam, bez agenta i bez skilla domenowego.
 
+## 0. Przyjęcie
+Zanim wybierzesz wykonawcę, ustal w jednej linii: cel, kryterium „gotowe", ograniczenia, ryzyko. Pytaj użytkownika (`AskUserQuestion`) tylko o to, co blokuje i czego nie wyczytasz z `.hq/` lub kodu; resztę oznacz `[ZAŁOŻENIE]`. Przy >3 krokach pokaż plan w kilku liniach: krok -> wykonawca -> kryterium, co równolegle.
+**Zgoda człowieka przed:** nieodwracalnym działaniem i usuwaniem danych, wysyłką lub publikacją, płatnością i zakupem, umową lub poradą prawną, danymi osobowymi, produkcją i wdrożeniem. Agent to przygotowuje, nie wykonuje.
+
 ## 1. Kontekst (tanio)
 Hook podaje na starcie: organizację (`org.md`), linię `Marka:` i `.hq/context.md` + `handoff.md` - nie czytaj ich ponownie. Dociągaj tylko `.hq/pm/tasks.tsv`, gdy wybierasz następne zadanie.
 Nie ładuj repo, dokumentów ani referencji skilli na zapas - agent dociąga sam to, co ma w swojej instrukcji.
@@ -66,7 +70,9 @@ Paczka dla agenta, telegraficznie:
 - **Branding, grafika, kolory, ekrany, mockupy = projektuj w Figmie.** Zanim ruszysz, przeczytaj `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/figma.md`: sprawdź dostęp do Figma MCP, poproś użytkownika o podłączenie i o to, czego koniecznie potrzeba (link do pliku, zasoby). Agenci nie mają Figmy - dają specyfikację, buduje główny wątek.
 - Proste zadanie: `model: haiku`; ważna decyzja na tanim agencie (np. researcher): `model: sonnet`.
 
-Równolegle tylko zadania niezależne i bez wspólnych plików.
+- Najmniejsze uprawnienia: do paczki tylko to, co potrzebne - bez sekretów, danych osobowych, całej rozmowy i cudzych wyników bez potrzeby; zadanie zgodne z rolą agenta.
+
+Równolegle tylko zadania niezależne i bez wspólnych plików; ≤3 agentów naraz.
 
 ## 4. Protokół zwrotu
 - Agenci nie rozmawiają z użytkownikiem. Sekcję **PYTANIA/DECYZJE** z ich zwrotu zadajesz Ty (`AskUserQuestion`, ≤4 pytania, opcje z rekomendacją).
@@ -75,6 +81,10 @@ Równolegle tylko zadania niezależne i bez wspólnych plików.
 
 ## 5. Weryfikacja i stan
 - Sprawdź wynik (diff, test, wynik skryptu), nie wierz samemu podsumowaniu.
+- Wynik krytyczny (bezpieczeństwo, produkcja, prawo, bramka projektu): niezależny recenzent (`hq:reviewer`, `hq:design-reviewer`), nie ten sam agent.
+- Zwrot pusty lub niepełny: jedno ponowienie z doprecyzowaną paczką (lub mocniejszym modelem), potem inny agent albo pytanie do użytkownika; nie pętl. Przyczynę wpisz do `handoff.md`.
+- Agenci się różnią: porównaj dowody (`[DOWÓD]` > `[ZAŁOŻENIE]`), sprawdź źródło lub uruchom test; nierozstrzygalne pokaż użytkownikowi z obiema wersjami.
+- Odpowiedź końcowa: wynik, pewność, co niezweryfikowane, następny krok.
 - Status w `.hq/pm/tasks.tsv` (schemat w `hq:pm`). Brak pliku przy większym zadaniu = `hq:pm` skala Mini.
 - Po etapie: `hq:context` (aktualizacja `context.md`; `handoff.md` ≤15 linii: zrobione, następne, blokery).
 

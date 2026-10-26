@@ -1,5 +1,8 @@
 # Changelog hq
 
+## 1.8.0 · 2026-10-26
+- Orkiestrator wzmocniony wg analizy wzorców orkiestracji: krok 0 (cel, kryterium, ryzyko, plan >3 kroków), zgoda człowieka przed działaniami nieodwracalnymi/zewnętrznymi, najmniejsze uprawnienia w paczce, limity (≤3 równolegle, 1 ponowienie), recenzent niezależny dla wyników krytycznych, rozstrzyganie sprzecznych zwrotów, struktura odpowiedzi końcowej. Pominięte jako nieprzydatne w Claude Code: rejestry, circuit breakery, logi kosztów, warstwy pamięci (są w `.hq/`).
+
 ## 1.7.0 · 2026-10-26
 - Wywiad o marce przepisany (`brand/references/discovery-questions.md`): ~200 pytań z ankiety sprowadzone do 4 rund rdzenia (16 pytań) + rundy dodatkowe D1-D5 na żądanie; zasady: najpierw skan org/projektu i potwierdzanie zamiast pytania od zera, opcje z rekomendacją, "nie wiem" = propozycja, wizualne rundy pokazem; tryby Szybki/Standard/Pełny.
 
