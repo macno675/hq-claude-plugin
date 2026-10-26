@@ -49,8 +49,13 @@ Nowy projekt w org: zaproponuj tryb (domyślny z `org.md`) i utwórz profil z `$
 | B8 Utrzymanie: przegląd co ~6-12 mies., kryteria odświeżenia vs rebrandingu | `brand-strategist` | wpis w historii zmian | - |
 Nie przechodź do kolejnego etapu bez zatwierdzenia bramki (zapis w `decisions.md`). Zmiana strategii po B3 = powrót do B1 i ocena wpływu na sekcje 3-9.
 
+## Obowiązkowy zestaw przy tworzeniu nowej marki
+Nowy branding (Standard/Pełna; w Mini: pozycje 1-7) **musi** dostarczyć wszystkie pozycje; brak którejś = brandbook niegotowy, chyba że użytkownik świadomie ją wykreślił (zapis w `decisions.md`).
+B3 (system wizualny): 1. primary logo, 2. logomark (sygnet), 3. logo clearspace (pole ochronne + minimalny rozmiar), 4. primary typeface, 5. typeface hierarchy (H1-H6, body, caption: rozmiar/interlinia/waga), 6. color palette (role, HEX/RGB/CMYK), 7. brand imagery (kierunek zdjęć/ilustracji), 8. graphic patterns.
+B5 (zastosowania, jako mockupy): 9. social media creatives, 10. social media page banners, 11. brand mockups (ogólne: www/app/druk/opakowanie), 12. business card, 13. brand billboard, 14. brand merch, 15. conference display (roll-up/ścianka/stoisko).
+
 ## Definicja gotowości brandbooka
-Szablon: `templates/brandbook.md`. Gotowy, gdy: każda sekcja ma **konkretne wartości** (HEX/RGB/CMYK, rozmiary, pola ochronne, wielkości fontów, przykłady zdań), przykłady **poprawne i błędne**, kontrasty sprawdzone (`scripts/contrast.py`), dla marki organizacji wypełniona sekcja 0 (rdzeń / elastyczne / zgodność), logo przetestowane (referencja), licencje fontów opisane, wersja i data, właściciel marki, sekcja "Szybki start" (logo, kolory, fonty na jednej stronie). Czego nie da się ustalić bez specjalisty (znak towarowy, Pantone, druk CMYK), oznacz jako **DO WERYFIKACJI**, nie zgaduj.
+Szablon: `templates/brandbook.md`. Gotowy, gdy: dostarczony cały zestaw obowiązkowy (15 pozycji wyżej), każda sekcja ma **konkretne wartości** (HEX/RGB/CMYK, rozmiary, pola ochronne, wielkości fontów, przykłady zdań), przykłady **poprawne i błędne**, kontrasty sprawdzone (`scripts/contrast.py`), dla marki organizacji wypełniona sekcja 0 (rdzeń / elastyczne / zgodność), logo przetestowane (referencja), licencje fontów opisane, wersja i data, właściciel marki, sekcja "Szybki start" (logo, kolory, fonty na jednej stronie). Czego nie da się ustalić bez specjalisty (znak towarowy, Pantone, druk CMYK), oznacz jako **DO WERYFIKACJI**, nie zgaduj.
 
 ## Powiązania
 Kampanie i promocja z użyciem marki: `hq:marketing`; sponsorzy i partnerzy: `hq:partnerships`.
