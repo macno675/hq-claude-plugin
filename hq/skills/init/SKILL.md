@@ -16,7 +16,7 @@ Cel: każdy czat w projekcie startuje tanio z `.hq/context.md` i zna organizacj�
 4. **Istniejący projekt = adopcja** (deleguj do subagenta `Explore`/`hq:researcher`, zwrot ≤300 tokenów): stos, struktura (5-10 kluczowych ścieżek), polecenia test/build/run, stan (co działa, ostatnie zmiany z `git log --oneline -15`), widoczne problemy (TODO/FIXME, padające testy, jeśli tanie do uruchomienia). Nie czytaj repo w głównym wątku.
    Jeśli są kolory/fonty w kodzie lub zasobach: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/brand/scripts/brandscan.py . --brand <brandbook org>` (bez marki: bez `--brand`, tylko inwentarz) - wynik zapisz jako `.hq/brand/scan.tsv`, w rozmowie tylko podsumowanie.
 5. **Zapisz:**
-   - `.hq/context.md` z `${CLAUDE_PLUGIN_ROOT}/templates/context.md` (Cel, Stan, Teraz, Klucz; data dzisiejsza);
+   - `.hq/context.md` z `${CLAUDE_PLUGIN_ROOT}/templates/context.md` (Cel, Stan, Klucz; data dzisiejsza); wątki czatów w `.hq/threads/` powstają przy pierwszym handoffie;
    - `.hq/handoff.md`: `Zrobione: init` / `Następne: <krok>` / `Blokery: brak`;
    - `.hq/org` (slug), tylko gdy projekt nie leży w ścieżkach organizacji;
    - `.hq/brand/brand.md` z `${CLAUDE_PLUGIN_ROOT}/templates/brand-profile.md`, gdy jest org lub własna marka (tylko tryb, rodzic i różnice);

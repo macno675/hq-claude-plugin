@@ -1,5 +1,8 @@
 # Changelog hq
 
+## 1.10.0 · 2026-10-27
+- Równoległe czaty w jednym projekcie: `context.md` wspólny, fokus/następne/blokery/handoff każdego czatu w własnym `.hq/threads/<slug>.md` (szablon `templates/thread.md`), bo jeden nadpisywany plik gubił wątki drugiego czatu. Skill `hq:context`: zasady (zapis tylko do swojego wątku, ponowny odczyt i punktowa edycja wspólnego pliku); hook SessionStart wczytuje wszystkie wątki; `handoff.md` nadal wczytywany. Testy hooka rozszerzone.
+
 ## 1.9.0 · 2026-10-26
 - Zakupy i wybór produktu: `research/references/purchasing.md` (proces Z1-Z11: potrzeba, wymagania twarde/miękkie, TCO, lista kandydatów, opinie, dokumentacja, sprzedawca, dostępność i dostawa, gwarancja i serwis, macierz z wagami, zapis decyzji, checklist); podpięte w `hq:research` i routingu orkiestratora; zakup/płatność tylko po zgodzie człowieka.
 

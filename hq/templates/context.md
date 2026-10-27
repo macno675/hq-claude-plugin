@@ -8,9 +8,7 @@
 <co działa / co skończone, 3-6 linii; bez historii>
 
 ## Teraz
-- Fokus: <aktualne zadanie, id z .hq/pm/tasks.tsv>
-- Następne: <1-3 kroki>
-- Blokery: <lub "brak">
+<!-- Wspólny stan tylko dla projektu. Fokus, następne kroki i blokery każdego czatu: .hq/threads/<wątek>.md (szablon thread.md) -->
 
 ## Decyzje (nieodwołalne bez powodu)
 - <decyzja> — bo <powód>

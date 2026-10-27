@@ -1,5 +1,5 @@
 #!/bin/bash
-# start: routing + organizacja (org.md) + linia Marka + .hq/context.md (+ handoff). check: dwustopniowe ostrzeżenie o rozmiarze rozmowy.
+# start: routing + organizacja (org.md) + linia Marka + .hq/context.md (+ handoff, wątki). check: dwustopniowe ostrzeżenie o rozmiarze rozmowy.
 # shortcut: rozmiar transkryptu w bajtach ~ 4 B/token, niedokładne; kalibruj progi (dokładnie: /context).
 COMPACT=${HQ_CTX_COMPACT:-300000}  # ~75k tokenów: podpowiedz /compact
 LIMIT=${HQ_CTX_BYTES:-500000}      # ~125k tokenów: nowy czat
@@ -49,6 +49,12 @@ case "$1" in
     [ -f "$DIR/.hq/context.md" ] || { echo "[hq] Brak .hq/context.md - przy dłuższej pracy zaproponuj hq:init (adopcja istniejącego kodu i marki)."; exit 0; }
     cat "$DIR/.hq/context.md"
     [ -f "$DIR/.hq/handoff.md" ] && { echo; cat "$DIR/.hq/handoff.md"; }
+    # Wątki równoległych czatów: każdy czat edytuje tylko swój plik (skill hq:context).
+    th=("$DIR"/.hq/threads/*.md)
+    if [ -f "${th[0]}" ]; then
+      echo; echo "[hq] Wątki ($(for f in "${th[@]}"; do basename "$f" .md; done | paste -sd, -)): ten czat pracuje w jednym; jeśli użytkownik go nie wskazał, zapytaj. Zapisuj tylko własny .hq/threads/<slug>.md."
+      for f in "${th[@]}"; do echo; cat "$f"; done
+    fi
     ;;
   check)
     command -v jq >/dev/null || exit 0

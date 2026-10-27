@@ -20,4 +20,7 @@ echo brak >"$T/Projects/ACME/app/.hq/org"; o=$(run "$T/Projects/ACME/app"); no "
 echo nieznana >"$T/klient/.hq/org"; o=$(run "$T/klient"); ok "$o" "zaproponuj hq:org" "zła org"
 mkdir -p "$T/klient/.hq/brand"; printf 'tryb: zly\n' >"$T/klient/.hq/brand/brand.md"; o=$(run "$T/klient"); ok "$o" "Nieznany tryb marki" "zły tryb"
 echo acme >"$T/klient/.hq/org"; printf 'tryb: niezależna\n' >"$T/klient/.hq/brand/brand.md"; o=$(run "$T/klient"); no "$o" "rdzeń=" "niezależna bez rdzenia"; ok "$o" "tryb=niezależna" "niezależna"
+mkdir -p "$T/Projects/ACME/app/.hq/threads"; printf '# WATEK a\nFokus: AAA\n' >"$T/Projects/ACME/app/.hq/threads/a.md"; printf '# WATEK b\nFokus: BBB\n' >"$T/Projects/ACME/app/.hq/threads/b.md"
+o=$(run "$T/Projects/ACME/app"); ok "$o" "Wątki (a,b)" "lista wątków"; ok "$o" "Fokus: AAA" "wątek a"; ok "$o" "Fokus: BBB" "wątek b"; ok "$o" "# CTX app" "context obok wątków"
+o=$(run "$T/solo"); no "$o" "Wątki" "brak wątków bez plików"
 [ $fail = 0 ] && echo "hooki: OK" || exit 1
