@@ -1,9 +1,10 @@
 #!/bin/bash
 # start: routing + organizacja (org.md) + linia Marka + .hq/context.md (+ handoff, wątki). check: dwustopniowe ostrzeżenie o rozmiarze rozmowy.
-# shortcut: rozmiar transkryptu w bajtach ~ 4 B/token, niedokładne; kalibruj progi (dokładnie: /context).
-COMPACT=${HQ_CTX_COMPACT:-300000}  # ~75k tokenów: podpowiedz /compact
-LIMIT=${HQ_CTX_BYTES:-500000}      # ~125k tokenów: nowy czat
-STEP=${HQ_CTX_STEP:-150000}        # kolejne ostrzeżenie dopiero po takim przyroście
+# Rozmiar = rzeczywiste tokeny z usage ostatniej odpowiedzi (jak /context), liczone jako przyrost od pierwszej odpowiedzi,
+# bo stały narzut (narzędzia, skille, MCP) bywa ~90k i nie jest winą rozmowy. Po /compact usage spada samo.
+COMPACT=${HQ_CTX_COMPACT:-60000}   # przyrost tokenów: podpowiedz /compact
+LIMIT=${HQ_CTX_TOKENS:-110000}     # przyrost tokenów: nowy czat
+STEP=${HQ_CTX_STEP:-50000}         # kolejne ostrzeżenie dopiero po takim przyroście
 DIR=${CLAUDE_PROJECT_DIR:-.}
 
 in=$(cat)
@@ -64,13 +65,18 @@ case "$1" in
     # Przypominajka co N-tą wiadomość: instrukcja ze startu ginie w długiej rozmowie.
     n=$(( $(cat "$mark.n" 2>/dev/null || echo 0) + 1 )); echo "$n" >"$mark.n"
     [ $((n % ${HQ_REMIND_EVERY:-6})) -eq 0 ] && echo "[hq] Przypomnienie: zadanie wieloetapowe lub domenowe (kod, marka, elektronika, PM, finanse, marketing...) zaczynaj od skilla hq:orchestrator i deleguj do agentów hq:*. Stan pracy: .hq/context.md."
-    size=$(wc -c <"$f"); last=$(cat "$mark" 2>/dev/null || echo 0)
+    tok() { jq -r 'select(.message.usage) | .message.usage | .input_tokens + .cache_creation_input_tokens + .cache_read_input_tokens' 2>/dev/null; }
+    lines=$(grep '"type":"assistant"' "$f" | grep -v '"isSidechain":true' | grep '"input_tokens"')
+    cur=$(tail -1 <<<"$lines" | tok); [ -n "$cur" ] || exit 0   # jeszcze brak odpowiedzi: nic nie mierzymy
+    [ -f "$mark.base" ] || head -1 <<<"$lines" | tok >"$mark.base"
+    base=$(cat "$mark.base"); size=$((cur - base)); last=$(cat "$mark" 2>/dev/null || echo 0)
+    info="~$((cur / 1000))k tokenów, w tym ~$((base / 1000))k stałego narzutu; rozmowa ~$((size / 1000))k. Dokładnie: /context"
     if [ "$size" -ge "$LIMIT" ] && [ "$size" -ge $((last + STEP)) ]; then
       echo "$size" >"$mark"
-      echo "[hq] Rozmowa duża (~$((size / 4000))k tokenów). Po odpowiedzi na bieżącą prośbę zastosuj skill hq:context: zaktualizuj .hq/context.md i handoff.md, zaproponuj nowy czat (/rename, /clear) z linią startową."
+      echo "[hq] Rozmowa duża ($info). Po odpowiedzi na bieżącą prośbę zastosuj skill hq:context: zaktualizuj .hq/context.md i swój wątek, zaproponuj nowy czat (/rename, /clear) z linią startową."
     elif [ "$size" -ge "$COMPACT" ] && [ ! -f "$mark.compact" ]; then
       : >"$mark.compact"
-      echo "[hq] Kontekst rośnie (~$((size / 4000))k tokenów). Jeśli to wciąż to samo zadanie, po odpowiedzi zaproponuj użytkownikowi /compact z szablonem ze skilla hq:context; przy zmianie zadania /rename i /clear."
+      echo "[hq] Kontekst rośnie ($info). Jeśli to wciąż to samo zadanie, po odpowiedzi zaproponuj /compact z szablonem ze skilla hq:context; przy zmianie zadania /rename i /clear."
     fi
     ;;
 esac

@@ -23,4 +23,11 @@ echo acme >"$T/klient/.hq/org"; printf 'tryb: niezależna\n' >"$T/klient/.hq/bra
 mkdir -p "$T/Projects/ACME/app/.hq/threads"; printf '# WATEK a\nFokus: AAA\n' >"$T/Projects/ACME/app/.hq/threads/a.md"; printf '# WATEK b\nFokus: BBB\n' >"$T/Projects/ACME/app/.hq/threads/b.md"
 o=$(run "$T/Projects/ACME/app"); ok "$o" "Wątki (a,b)" "lista wątków"; ok "$o" "Fokus: AAA" "wątek a"; ok "$o" "Fokus: BBB" "wątek b"; ok "$o" "# CTX app" "context obok wątków"
 o=$(run "$T/solo"); no "$o" "Wątki" "brak wątków bez plików"
+# check: pomiar z usage (przyrost od pierwszej odpowiedzi), bez odpowiedzi = cisza
+tr="$T/tr.jsonl"; chk() { echo "{\"transcript_path\":\"$tr\",\"session_id\":\"s$1\"}" | TMPDIR="$T" HQ_REMIND_EVERY=999 bash "$H" check; }
+msg() { printf '{"type":"assistant","message":{"usage":{"input_tokens":1,"cache_creation_input_tokens":0,"cache_read_input_tokens":%s}}}\n' "$1"; }
+echo '{"type":"user"}' >"$tr"; o=$(chk 1); [ -z "$o" ] || { echo "FAIL: ostrzeżenie bez odpowiedzi"; fail=1; }
+msg 90000 >"$tr"; msg 100000 >>"$tr"; o=$(chk 2); [ -z "$o" ] || { echo "FAIL: narzut stały nie powinien alarmować"; fail=1; }
+msg 160000 >>"$tr"; o=$(chk 3); ok "$o" "/compact" "próg compact po przyroście 70k"
+msg 210000 >>"$tr"; o=$(chk 3); ok "$o" "nowy czat" "próg nowego czatu po przyroście 120k"
 [ $fail = 0 ] && echo "hooki: OK" || exit 1

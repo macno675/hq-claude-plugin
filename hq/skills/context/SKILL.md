@@ -49,7 +49,7 @@ Koszt = rozmiar kontekstu x liczba zapytań (instrukcje, historia, odczytane pli
 
 **Plugin (zachowania):** stan trzymaj w `.hq/context.md`, `.hq/threads/`, `.hq/pm/tasks.tsv`, nie w rozmowie · nowy czat startuje z `context.md` (hook) · po długiej przerwie cache wygasa i pierwsza wiadomość przetwarza cały kontekst, więc **po przerwie tańszy jest nowy czat z `context.md` niż wznawianie dużej sesji** · hook ostrzega o rozmiarze dwustopniowo (patrz niżej) · duże odczyty, badania i uruchamianie testów idą do subagentów (zwracają podsumowanie) · nie zmieniaj zestawu pluginów i MCP w trakcie sesji (zmiana definicji narzędzi unieważnia cache; wniosek z opisu przyczyn pudeł cache).
 
-**Dwa progi hooka:** ok. 75k tokenów (`HQ_CTX_COMPACT` bajtów, domyślnie 300000): podpowiedz `/compact` z szablonem, jeśli to wciąż to samo zadanie; ok. 125k (`HQ_CTX_BYTES`, 500000): zaktualizuj `context.md` i `handoff.md` i zaproponuj nowy czat. Pomiar w bajtach transkryptu jest szacunkiem; dokładne wartości pokazuje `/context`.
+**Dwa progi hooka:** hook czyta rzeczywiste tokeny z `usage` ostatniej odpowiedzi (to samo co `/context`) i liczy **przyrost od pierwszej odpowiedzi**, bo stały narzut (narzędzia, skille, MCP) bywa ~90k i nie jest winą rozmowy. Przyrost ≥60k (`HQ_CTX_COMPACT`): podpowiedz `/compact` z szablonem, jeśli to wciąż to samo zadanie; ≥110k (`HQ_CTX_TOKENS`): zaktualizuj `context.md` i swój wątek i zaproponuj nowy czat; kolejne ostrzeżenie dopiero po +50k (`HQ_CTX_STEP`). Brak odpowiedzi w rozmowie = brak pomiaru, brak ostrzeżenia. Po `/compact` licznik spada sam. Duży stały narzut zmniejszysz w `/mcp` i przez wyłączenie nieużywanych pluginów.
 
 **Szablon `/compact`** (wklej, dostosuj):
 ```

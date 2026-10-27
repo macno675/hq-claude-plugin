@@ -1,5 +1,8 @@
 # Changelog hq
 
+## 1.10.1 · 2026-10-27
+- Hook rozmiaru mierzy rzeczywiste tokeny z `usage` ostatniej odpowiedzi (jak `/context`), nie bajty transkryptu (te zawyżały wynik ~2x i rosły mimo `/compact`). Progi liczone od przyrostu względem pierwszej odpowiedzi, bo stały narzut narzędzi/MCP (~90k) nie jest winą rozmowy: compact od +60k, nowy czat od +110k, kolejne ostrzeżenie co +50k. Brak odpowiedzi = brak ostrzeżenia. Zmienne: `HQ_CTX_COMPACT`, `HQ_CTX_TOKENS`, `HQ_CTX_STEP` (teraz w tokenach; `HQ_CTX_BYTES` usunięta). Komunikat podaje stały narzut i przyrost.
+
 ## 1.10.0 · 2026-10-27
 - Równoległe czaty w jednym projekcie: `context.md` wspólny, fokus/następne/blokery/handoff każdego czatu w własnym `.hq/threads/<slug>.md` (szablon `templates/thread.md`), bo jeden nadpisywany plik gubił wątki drugiego czatu. Skill `hq:context`: zasady (zapis tylko do swojego wątku, ponowny odczyt i punktowa edycja wspólnego pliku); hook SessionStart wczytuje wszystkie wątki; `handoff.md` nadal wczytywany. Testy hooka rozszerzone.
 
