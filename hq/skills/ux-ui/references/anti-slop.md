@@ -8,7 +8,7 @@ Slop = poprawne, ale generyczne: szablonowy układ, ilustracje SVG z domyślnych
 3. **System designu z referencji, potem ekrany:** z referencji wyprowadź paletę, typografię, promienie, cienie, tła, mikrointerakcje, strukturę komponentów (`tokens.css`, `design-system.md`; w Figmie: zmienne i style). Gdy marka istnieje, system dziedziczy z niej i referencja dotyczy tylko różnic. Dopiero na systemie buduj układ.
 4. **Przebuduj, nie dopieszczaj:** pierwszą generację traktuj jako szkic funkcji; zmień układ pod system (pełnoekranowe hero, ruch przy przewijaniu, kontrastowe sekcje, własny kursor tylko gdy pasuje do marki i dostępności).
 5. **Prawdziwe obrazy zamiast generycznych ilustracji:** zdjęcia lub spójnie stylizowane materiały (własne, licencjonowane lub wygenerowane i zweryfikowane pod prawa); proste SVG z szablonu to znak slopu.
-6. **Eksploracja drogo, wykończenie tanio:** szybkie kierunki wizualne w narzędziu graficznym (Figma, ew. Claude Design), gotowe układy do repo (`hq:frontend`) i szlifowanie lokalnie; nie pracuj długo w drogim narzędziu wizualnym.
+6. **Eksploracja drogo, wykończenie tanio:** szybkie kierunki wizualne w narzędziu graficznym (HTML/SVG, ew. Claude Design), gotowe układy do repo (`hq:frontend`) i szlifowanie lokalnie; nie pracuj długo w drogim narzędziu wizualnym.
 7. **Ten sam system dla każdego materiału:** strona, menu/druk, posty social, prezentacje generuj z tych samych tokenów (spójność marki, `brandscan.py`).
 
 ## Lista wykrywania slopu (dla autoprzeglądu i recenzenta)

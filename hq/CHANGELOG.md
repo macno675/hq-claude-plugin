@@ -1,5 +1,12 @@
 # Changelog hq
 
+## 1.12.0 · 2026-11-01
+- Wizualizacje i grafika: domyślnie lokalne HTML/SVG + Playwright zamiast Figmy (`orchestrator/references/visual.md` zastępuje `figma.md`): wybór silnika wg zadania, tokeny w `brand/tokens.json`, pętla render - zrzut - ocena (max 2 rundy), pułapki (fonty, PDF, SVG). Figma/MCP tylko na żądanie lub przy istniejącej bibliotece; kod jest wtedy źródłem. Powód: CLI tańsze w kontekście niż MCP, wynik w git, poprawka = mały patch.
+- `templates/visual-render.mjs`: szablon HTML + brief JSON + tokeny -> PNG/PDF, wykrywa przepełnienie i wyjście poza artboard (przetestowane: polskie znaki, PDF, błąd przy przepełnieniu). Przepięte: orkiestrator, `hq:ux-ui`, brand (referencje i brandbook slajdy), szablony context/org.
+- Audyt (Perplexity + weryfikacja w kodzie), P0 naprawione i przetestowane (testy padają na starym kodzie): slug z `.hq/org` walidowany (koniec `../` i ścieżek absolutnych); hook rozmiaru czyta transkrypt przez `jq` (odporny na odstępy w JSON) i po spadku usage (`/compact`, `/clear`) zaczyna nowy cykl ostrzeżeń; komunikat nie nazywa już pierwszej odpowiedzi "stałym narzutem"; filtr testów (opt-in) zachowuje kod wyjścia, pełny log w pliku i 3 ostatnie linie.
+- `hq/evals/`: 6 przypadków dla `claude plugin eval` (trywialne bez orkiestratora, routing wielodomenowy, bramka zgody, injection w danych, elektronika bez API, render polskich znaków). Nie uruchomione: zużywa limit; najpierw `--no-publish`.
+- Liczby i rankingi z Perplexity (koszt tokenów, kategorie ocen) to `[ZAŁOŻENIE]`; do własnego pomiaru na 4 zadaniach (slajd, social, wykres, ekran).
+
 ## 1.11.0 · 2026-10-30
 - Ochrona przed AI slop: `ux-ui/references/anti-slop.md` (przepływ: specyfikacja .md -> referencja estetyczna -> system designu z referencji -> układ -> prawdziwe obrazy -> wykończenie w kodzie; ten sam system dla www/druku/social; lista wykrywania generyczności). Podpięte w `hq:ux-ui`, `ui-designer` i liście kontrolnej recenzenta.
 - Logo (`brand/references/logo.md`): głos marki przed rysowaniem (5+5 słów, zdanie-tweet), luka unikalności (20 logo na planszy), start od kontekstu zamiast pustej planszy, forma ostra/organiczna i asymetria, prostota z duszą, test 1 sekundy, wariant eksperymentalny w prezentacji, font zmienny, powtarzalny test skalowania, README w pakiecie, AI jako szkicownik. Pominięte: triki Illustratora (projektujemy w Figmie).

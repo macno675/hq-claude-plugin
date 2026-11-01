@@ -1,6 +1,6 @@
 # Szablon slajdów brandbooka (układ wzorowany na stylu agencyjnym)
 
-Jeden plik Figma, **15 slajdów tego samego układu**, powtarzalnych dla każdej marki. Zmienia się tylko marka (paleta, logo, font, zdjęcia), nigdy układ. Wzorzec to inspiracja układem, nie treścią: nie kopiuj cudzej marki ani zdjęć.
+Jeden plik HTML (lub Figma na życzenie), **15 slajdów tego samego układu**, powtarzalnych dla każdej marki. Zmienia się tylko marka (paleta, logo, font, zdjęcia), nigdy układ. Wzorzec to inspiracja układem, nie treścią: nie kopiuj cudzej marki ani zdjęć.
 
 ## Układ każdego slajdu (ramka 16:9, np. 1920x1080)
 - Tło slajdu: prawie biały (neutralny z palety marki, np. `#FDFDFF`), marginesy ~60 px.
@@ -30,7 +30,7 @@ Jeden plik Figma, **15 slajdów tego samego układu**, powtarzalnych dla każdej
 | 15 | Conference Display | scena/ekran LED, ścianka lub roll-up: hasło, logo, nazwa wydarzenia |
 
 ## Realizacja
-- Figma: jedna strona `Brandbook`, ramki `01 Primary Logo` ... `15 Conference Display`, komponent `Slide` (tytuł, opis, panel) z auto-layout; kolory, typografia i promienie jako zmienne/style z B3 (skill `figma:figma-generate-library`, slajdy `figma:figma-generate-design`; `figma:figma-use` przed każdym `use_figma`).
+- HTML: jeden szablon `Slide` (tytuł, opis, panel; CSS grid), 15 briefów JSON `01 Primary Logo` ... `15 Conference Display`, render `templates/visual-render.mjs` do PNG/PDF; kolory, typografia i promienie z `brand/tokens.json` (z B3). Wersja Figma tylko na żądanie (`visual.md`, sekcja 5).
 - Zdjęcia i mockupy (11-15): generator obrazów lub zdjęcia stockowe tylko jako **materiał poglądowy** (zaznacz w opisie; do wymiany przed publikacją, sprawdź licencje i prawa wizerunku). Logo na mockupach wstawiaj z wektora, nigdy z obrazu generatora.
 - Teksty slajdów, hasła i opisy po języku użytkownika; nazwy slajdów po angielsku zostają (tytuły standardu), chyba że użytkownik zdecyduje inaczej.
 - Po złożeniu: przegląd `hq:design-reviewer` (spójność układu między slajdami, kontrasty `contrast.py`, `logotest.py` dla logo), eksport PDF jako wersja do przekazania.

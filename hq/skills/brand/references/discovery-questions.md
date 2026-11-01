@@ -9,7 +9,7 @@ Cel: użytkownik odpowiada krótko i z przyjemnością, a Ty wiesz wszystko, co 
 4. **Jedna runda = jeden temat**, ≤4 pytania (`AskUserQuestion`), nagłówek rundy z postępem ("Runda 2/4: klient"). Po rundzie jedno zdanie: co zapisałeś i co dalej.
 5. **Pytaj "dlaczego" tylko tam, gdzie to zmienia decyzję** (wartości, przewaga, granice). Gust (kolory, fonty) sprawdzaj pokazem, nie rozmową.
 6. **Nie wiem = Twoja robota:** zaproponuj 2-3 wersje z uzasadnieniem, zapisz wybraną jako `[ZAŁOŻENIE]` do potwierdzenia.
-7. **Pokazuj, nie opisuj** (Figma wg `figma.md`; bez niej widżet/HTML): skale osobowości jako suwaki, palety z próbkami i kontrastem, pary fontów jako specimeny, komunikat błędu w 3 tonach obok siebie, 2-4 moodboardy. Rund wizualnych nie mieszaj z rundami słownymi.
+7. **Pokazuj, nie opisuj** (render wg `visual.md`): skale osobowości jako suwaki, palety z próbkami i kontrastem, pary fontów jako specimeny, komunikat błędu w 3 tonach obok siebie, 2-4 moodboardy. Rund wizualnych nie mieszaj z rundami słownymi.
 8. **Zapis** w `discovery.md`: tabela `pole | odpowiedź | źródło (użytkownik/wywnioskowane/założenie)`; decyzje z powodem do `decisions.md`.
 
 ## Tryb (zapytaj w pierwszej paczce razem z skalą)

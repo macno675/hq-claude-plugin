@@ -5,6 +5,6 @@ Kim jesteśmy: <1 zdanie: co robi organizacja, dla kogo>
 Produkty/obszary: <lista 1 linia>
 Marka: `brand/brandbook.md` · rdzeń w sekcji 0 · domyślny tryb projektów: <dziedziczy | rozszerza>
 Język i ton: <np. polski, "Ty", rzeczowo>
-Stos i standardy: <np. TypeScript+React, Python; JLCPCB; Figma> (decyzje: `decisions.md`)
+Stos i standardy: <np. TypeScript+React, Python; JLCPCB> (decyzje: `decisions.md`)
 Zasady stałe: <np. nic nie wysyłamy bez zgody; dane klientów lokalnie>
 Ludzie/role: <kto decyduje o marce, budżecie, produkcie>

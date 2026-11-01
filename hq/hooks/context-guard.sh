@@ -25,6 +25,7 @@ case "$1" in
         done <"$pf"
       done
     fi
+    case "$org" in ""|*[!A-Za-z0-9._-]*|.*) [ -n "$org" ] && echo "[hq] Nieprawidłowy slug organizacji w .hq/org (dozwolone: litery, cyfry, . _ -; bez ukrytych nazw)."; org="" ;; esac
     od="$HQ/orgs/$org"
     if [ -n "$org" ]; then
       if [ -d "$od" ]; then
@@ -65,12 +66,15 @@ case "$1" in
     # Przypominajka co N-tą wiadomość: instrukcja ze startu ginie w długiej rozmowie.
     n=$(( $(cat "$mark.n" 2>/dev/null || echo 0) + 1 )); echo "$n" >"$mark.n"
     [ $((n % ${HQ_REMIND_EVERY:-6})) -eq 0 ] && echo "[hq] Przypomnienie: zadanie wieloetapowe lub domenowe (kod, marka, elektronika, PM, finanse, marketing...) zaczynaj od skilla hq:orchestrator i deleguj do agentów hq:*. Stan pracy: .hq/context.md."
-    tok() { jq -r 'select(.message.usage) | .message.usage | .input_tokens + .cache_creation_input_tokens + .cache_read_input_tokens' 2>/dev/null; }
-    lines=$(grep '"type":"assistant"' "$f" | grep -v '"isSidechain":true' | grep '"input_tokens"')
-    cur=$(tail -1 <<<"$lines" | tok); [ -n "$cur" ] || exit 0   # jeszcze brak odpowiedzi: nic nie mierzymy
-    [ -f "$mark.base" ] || head -1 <<<"$lines" | tok >"$mark.base"
+    # Odpowiedzi głównego wątku z usage (jq czyta JSONL niezależnie od białych znaków); lista sum tokenów wejścia.
+    toks=$(jq -r 'select(.type=="assistant" and (.isSidechain|not) and .message.usage) | .message.usage | (.input_tokens // 0) + (.cache_creation_input_tokens // 0) + (.cache_read_input_tokens // 0)' "$f" 2>/dev/null)
+    cur=$(tail -1 <<<"$toks"); [ -n "$cur" ] || exit 0   # jeszcze brak odpowiedzi: nic nie mierzymy
+    [ -f "$mark.base" ] || head -1 <<<"$toks" >"$mark.base"
+    # Spadek >30% względem poprzedniego pomiaru = /compact lub /clear: nowy cykl ostrzeżeń.
+    prev=$(cat "$mark.prev" 2>/dev/null || echo 0); echo "$cur" >"$mark.prev"
+    [ "$cur" -lt $((prev * 7 / 10)) ] && rm -f "$mark" "$mark.compact"
     base=$(cat "$mark.base"); size=$((cur - base)); last=$(cat "$mark" 2>/dev/null || echo 0)
-    info="~$((cur / 1000))k tokenów, w tym ~$((base / 1000))k stałego narzutu; rozmowa ~$((size / 1000))k. Dokładnie: /context"
+    info="~$((cur / 1000))k tokenów; ~$((base / 1000))k z pierwszej odpowiedzi sesji (narzędzia, skille, MCP, pierwsza prośba), przyrost ~$((size / 1000))k. Dokładnie: /context"
     if [ "$size" -ge "$LIMIT" ] && [ "$size" -ge $((last + STEP)) ]; then
       echo "$size" >"$mark"
       echo "[hq] Rozmowa duża ($info). Po odpowiedzi na bieżącą prośbę zastosuj skill hq:context: zaktualizuj .hq/context.md i swój wątek, zaproponuj nowy czat (/rename, /clear) z linią startową."

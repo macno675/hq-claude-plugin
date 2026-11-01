@@ -18,4 +18,4 @@
 
 ## Klucz
 - <ścieżka> — <rola>   (tylko pliki, których agent realnie potrzebuje)
-- Figma: <URL pliku> · biblioteka: <tak/nie>   (projekty z wyglądem; skill orchestrator, references/figma.md)
+- Wizualia: HTML/SVG+Playwright · tokeny: brand/tokens.json   (Figma tylko gdy wymagana: URL; skill orchestrator, references/visual.md)

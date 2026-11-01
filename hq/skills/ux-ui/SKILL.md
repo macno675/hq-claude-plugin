@@ -14,7 +14,7 @@ UX odpowiada za **logikę doświadczenia** (czy użytkownik osiąga cel szybko i
 4. **Dostępność od początku**, nie przed publikacją.
 5. **Marka jest wejściem**: marka efektywna (linia `Marka:` z hooka, zasady w `hq:brand`) daje styl, rdzeń organizacji nienaruszalny; UI adaptuje go do czytelności, dostępności i responsywności, nie kopiuje mechanicznie. Brak brandbooka = zaproponuj `hq:brand` Mini.
 6. **Dodawaj tylko to, co poprawia zrozumienie.** Pytanie kontrolne: co mogę usunąć, żeby było jaśniej?
-7. **Projektuj w Figmie.** Wireframe'y, ekrany, komponenty i tokeny powstają w Figmie (`${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/figma.md`: podłączenie Figma MCP, link do pliku); HTML tylko jako prototyp lub za zgodą użytkownika.
+7. **Projektuj w HTML/SVG + Playwright.** Wireframe'y, ekrany, komponenty i tokeny: lokalnie wg `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/visual.md` (render, zrzut, ocena); Figma tylko gdy użytkownik jej wymaga.
 8. **Poziom 4, nie średnia.** Jedna wizja i motyw przewodni przed ekranami; AI wykonuje, człowiek kieruje (`direction-and-patterns.md`). Nie generuj ekranów bez systemu designu z referencji (`anti-slop.md`). Ładne bez statusu, cofnięcia i wyjścia z błędu to teatr designu (`premium-craft.md`).
 9. **Programiści wcześnie** (wykonalność, wydajność, gotowe komponenty), nie dopiero przy handoffie.
 

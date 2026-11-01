@@ -6,7 +6,7 @@ Obraz wspiera strategię marki, nie jest dekoracją. Styl graficzny to **system 
 1. **Wejście z B1:** odbiorca, wartości, odróżnienie od konkurencji, miejsca użycia. Brak B1 = stop.
 2. **Emocje:** 3-5 (np. zaufanie, spokój, precyzja, ciepło, odwaga, prestiż), każda zamieniona w decyzję wizualną: światło, kolor, kompozycja, model, tło, typ zdjęcia.
 3. **Słownik wizualny:** konkret zamiast ogólników. Nie "nowoczesne/premium/przyjazne", tylko np. "miękkie światło dzienne", "dużo przestrzeni negatywnej", "prawdziwe osoby, nie pozowane", "bliskie kadry detalu", "ciepła temperatura barwowa".
-4. **Moodboard** (pogłębia moodboard z B2; Figma, `figma.md`): zdjęcia, ilustracje, paleta, typografia, tekstury, kompozycje, tła, światło, kadrowanie, zastosowania; 2-4 mocno różne kierunki do wyboru, przetestowane z interesariuszami przed finałem; wybór w `decisions.md`.
+4. **Moodboard** (pogłębia moodboard z B2; render wg `visual.md`): zdjęcia, ilustracje, paleta, typografia, tekstury, kompozycje, tła, światło, kadrowanie, zastosowania; 2-4 mocno różne kierunki do wyboru, przetestowane z interesariuszami przed finałem; wybór w `decisions.md`.
 5. **Fotografia: zasady** (tabela niżej).
 6. **Grafika: typ i styl** (ilustracja, ikony, 3D, animacja, wzór wg `pattern.md`, kolaż, typografia jako obraz): jeden styl wiodący, reguły mieszania zapisane.
 7. **Mockupy** jako test (sekcja niżej).

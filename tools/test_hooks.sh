@@ -30,4 +30,18 @@ echo '{"type":"user"}' >"$tr"; o=$(chk 1); [ -z "$o" ] || { echo "FAIL: ostrzeż
 msg 90000 >"$tr"; msg 100000 >>"$tr"; o=$(chk 2); [ -z "$o" ] || { echo "FAIL: narzut stały nie powinien alarmować"; fail=1; }
 msg 160000 >>"$tr"; o=$(chk 3); ok "$o" "/compact" "próg compact po przyroście 70k"
 msg 210000 >>"$tr"; o=$(chk 3); ok "$o" "nowy czat" "próg nowego czatu po przyroście 120k"
+# slug z .hq/org nie może wychodzić z orgs/ (../, ścieżka absolutna)
+mkdir -p "$T/evil" "$T/klient2/.hq"; echo "# EVIL" >"$T/evil/org.md"
+for bad in "../../evil" "/etc" ".ukryta"; do echo "$bad" >"$T/klient2/.hq/org"; o=$(run "$T/klient2"); ok "$o" "Nieprawidłowy slug" "slug $bad"; no "$o" "# EVIL" "traversal $bad"; done
+# po /compact (spadek usage) ostrzeżenia startują od nowa; JSON z odstępami też jest mierzony
+tr2="$T/tr2.jsonl"; chk2() { echo "{\"transcript_path\":\"$tr2\",\"session_id\":\"c$1\"}" | TMPDIR="$T" HQ_REMIND_EVERY=999 bash "$H" check; }
+msg2() { printf '{ "type": "assistant", "message": { "usage": { "input_tokens": 1, "cache_creation_input_tokens": 0, "cache_read_input_tokens": %s } } }\n' "$1"; }
+msg2 90000 >"$tr2"; msg2 160000 >>"$tr2"; o=$(chk2 1); ok "$o" "/compact" "JSON z odstępami"
+msg2 40000 >>"$tr2"; o=$(chk2 1); [ -z "$o" ] || { echo "FAIL: po compact bez alarmu"; fail=1; }
+msg2 160000 >>"$tr2"; o=$(chk2 1); ok "$o" "/compact" "ostrzeżenie po kompakcji wraca"
+# filtr testów zachowuje kod wyjścia i pełny log
+F="$(cd "$(dirname "$0")/.." && pwd)/hq/hooks/filter-bash.sh"; mkdir -p "$T/bin"
+printf '#!/bin/bash\necho "FAIL: x"; echo "1 failed"; exit 3\n' >"$T/bin/pytest"; chmod +x "$T/bin/pytest"
+c=$(jq -nr --arg c "pytest" '{tool_input:{command:$c}}' | HQ_FILTER_OUTPUT=1 bash "$F" | jq -r '.hookSpecificOutput.updatedInput.command')
+o=$(PATH="$T/bin:$PATH" bash -c "$c"); rc=$?; [ $rc = 3 ] || { echo "FAIL: filtr zgubił kod wyjścia ($rc)"; fail=1; }; ok "$o" "FAIL: x" "filtr pokazuje błąd"; ok "$o" "exit=3" "filtr podaje kod"
 [ $fail = 0 ] && echo "hooki: OK" || exit 1
