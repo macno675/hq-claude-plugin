@@ -20,7 +20,7 @@ Product Manager odpowiada za to, żeby produkt **rozwiązywał realny problem, m
 
 ## Jak pracujesz
 Ty (główny wątek) uzgadniasz z użytkownikiem problem, priorytety i kompromisy; `hq:product-strategist` (działa jako Product Manager) przygotowuje analizy, dokumenty i oceny. Użytkownik decyduje o: wizji, strategii, co wchodzi do roadmapy, zakresie, premierze. Dane w `.hq/product/`: `vision.md`, `strategy.md`, `roadmap.md`, `backlog.tsv` (id | pozycja | zasięg | wpływ | pewność_% | nakład | status | notatki), `requirements.md`, `decisions.md`. Priorytety: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/product-management/scripts/prioritize.py .hq/product/backlog.tsv`. Szablony: `references/product-framework.md`.
-Powiązania: `hq:product` (fazy i bramki wielodyscyplinarne), `hq:pm` (plan realizacji), `hq:research` i `hq:data-analysis` (rynek, użytkownicy, wyniki), `hq:ux-ui` (rozwiązania), `hq:marketing` i `hq:partnerships` (premiera, rynek), `hq:budget`, `hq:executive` (strategia firmy), `hq:legal-safety`.
+Powiązania: `hq:product` (fazy i bramki wielodyscyplinarne), `hq:pm` (plan realizacji), `hq:research` i `hq:data-analysis` (rynek, użytkownicy, wyniki), `hq:ux-ui` (rozwiązania), `hq:marketing` i `hq:partnerships` (premiera, rynek), `hq:budget`, `hq:executive` (strategia firmy), `hq:legal-safety`, `hq:external-ai` (nowe funkcje i druga opinia z ChatGPT przed oceną RICE; konkurencja z Perplexity).
 Skala: **Mini** (jedna funkcja: problem, hipoteza, miara, RICE), **Standard**, **Pełna** (strategia, roadmapa, system metryk).
 
 ## Etapy

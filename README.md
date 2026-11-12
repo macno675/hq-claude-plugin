@@ -1,7 +1,8 @@
 # hq: plugin do Claude Code
 
 Uniwersalny plugin dla dowolnej organizacji, projektu i miniprojektu. Czatujesz z Claude jak zawsze, a plugin w tle:
-- dobiera właściwego specjalistę (37 agentów, 29 skilli: kod, produkt, elektronika, marka, UX/UI, PM, budżet, marketing, prawo i inne);
+- dobiera właściwego specjalistę (37 agentów, 30 skilli: kod, produkt, elektronika, marka, UX/UI, PM, budżet, marketing, prawo i inne);
+- gdy trzeba wiedzy z zewnątrz, pomysłów albo obrazu, pisze gotowy prompt do Perplexity (zwykły lub Deep Research), ChatGPT lub Gemini i sprawdza odpowiedź, którą odeślesz;
 - pamięta projekt i organizację;
 - pilnuje spójnej marki;
 - ładuje do kontekstu tylko to, co potrzebne.
@@ -32,6 +33,7 @@ claude plugin update hq@hq-marketplace
 |---|---|
 | `python3` | skrypty liczące (budżet, harmonogram, RICE, ryzyka, audyt marki itd.) |
 | `jq` | ostrzeżenia o rozmiarze rozmowy |
+| konta Perplexity, ChatGPT, Gemini (bez API) | `hq:external-ai`: wklejasz prompt, odsyłasz odpowiedź |
 | `ffmpeg` | pomiar głośności audio |
 | MCP EasyEDA Pro | `hq:electronics`: schemat i PCB |
 | klucze LCSC (`LCSC_APP_KEY`, `LCSC_SECRET`) | wyszukiwanie części przez API |
@@ -73,7 +75,7 @@ Rdzeń i elementy elastyczne opisuje sekcja 0 brandbooka organizacji. Rdzeń zmi
 ## Oszczędzanie kontekstu (działa samo)
 
 - Stale w kontekście są tylko opisy agentów i skilli (~1,4k tokenów) i kilka linii startowych.
-- Skill ładuje się dopiero po wybraniu przez orkiestratora. Agent sam czyta swoją referencję i wraca z wnioskiem (≤300 tokenów).
+- Skill ładuje się dopiero po wybraniu przez orkiestratora. Agent sam czyta swoją referencję i wraca z wnioskiem (zwykle ≤200 tokenów, decyzyjni i recenzenci ≤300).
 - Przy dużej rozmowie plugin podpowie `/compact` albo nowy czat. Pamięć zostaje w `.hq/context.md`.
 
 ## Rozwój

@@ -27,7 +27,7 @@ Nie "twórca viralowych postów": zamieniasz cel biznesowy w jasny przekaz, wła
 Ty (główny wątek) rozmawiasz z użytkownikiem i zatwierdzasz bramki; `hq:marketing-strategist` przygotowuje analizy, plany i materiały. Użytkownik decyduje o: celu i budżecie, grupach, przekazie, kanałach, publikacji i wydatkach. Dane w `.hq/marketing/`: `brief.md`, `audience.md`, `positioning.md`, `plan.md`, `calendar.tsv`, `tests.md`, `reports/`. Szablony: `references/marketing-framework.md`.
 Obliczenia: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/marketing/scripts/mkcalc.py kpi|abtest ...`.
 Reużywaj gotowych skilli, jeśli dostępne: `marketing:campaign-plan`, `marketing:content-creation`, `marketing:draft-content`, `marketing:email-sequence`, `marketing:performance-report`, `marketing:seo-audit`, `marketing:brand-review`, `brand-voice:enforce-voice`.
-Analiza wyników, ankiet i eksperymentów: `hq:data-analysis`; rynek i konkurencja: `hq:research`. Powiązania: `hq:brand` (identyfikacja i ton), `hq:event` (promocja wydarzenia, rejestracja), `hq:partnerships` (sponsorzy, leady), `hq:budget`, `hq:legal-safety`, `hq:ux-ui` (landing page), `hq:pm` (harmonogram).
+Analiza wyników, ankiet i eksperymentów: `hq:data-analysis`; rynek i konkurencja: `hq:research`; pomysły na kampanie, hasła i warianty: prompt do ChatGPT, grafiki robocze: prompt do Gemini (`hq:external-ai`). Powiązania: `hq:brand` (identyfikacja i ton), `hq:event` (promocja wydarzenia, rejestracja), `hq:partnerships` (sponsorzy, leady), `hq:budget`, `hq:legal-safety`, `hq:ux-ui` (landing page), `hq:pm` (harmonogram).
 Skala: **Mini** (jedna akcja promocyjna: cel, odbiorca, przekaz, 2 kanały, 3 KPI), **Standard**, **Pełna** (kampania zintegrowana wielokanałowa).
 
 ## Etapy

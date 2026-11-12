@@ -1,5 +1,10 @@
 # Changelog hq
 
+## 1.13.0 · 2026-11-12
+- Nowy skill `hq:external-ai`: Claude sam decyduje, kiedy warto sięgnąć po inne AI, i daje gotowy prompt do wklejenia (bez API, zgodnie z regulaminami): **Perplexity** do wiedzy z zewnątrz (reguła: zwykłe wyszukiwanie vs Deep Research wg skutków decyzji, liczby podpytań i podmiotów), **ChatGPT** do pomysłów, nowych funkcji i drugiej opinii (krytyka planu), **Gemini** do obrazów, konceptów wizualnych i streszczeń YouTube. Szablony w `external-ai/references/prompts.md`; zasady prywatności promptu i weryfikacji odpowiedzi (Perplexity = trop, cytujemy otwarty URL; obraz AI = materiał roboczy, nie logo; YouTube = źródło wtórne).
+- Podpięte: trasa w orkiestratorze, sekcja **PROMPT ZEWNĘTRZNY** w protokole zwrotu agentów, `hq:research` (Perplexity zamiast długiego szukania w skali Standard/Pełna), `researcher`, `brand`, `ux-ui`, `marketing`, `product-management`.
+- Evals: `external-ai-research` (Deep Research + ChatGPT), `external-ai-trivial` (bez zewnętrznego AI przy prostym fakcie). README: liczby skilli, limity zwrotu agentów.
+
 ## 1.12.0 · 2026-11-01
 - Wizualizacje i grafika: domyślnie lokalne HTML/SVG + Playwright zamiast Figmy (`orchestrator/references/visual.md` zastępuje `figma.md`): wybór silnika wg zadania, tokeny w `brand/tokens.json`, pętla render - zrzut - ocena (max 2 rundy), pułapki (fonty, PDF, SVG). Figma/MCP tylko na żądanie lub przy istniejącej bibliotece; kod jest wtedy źródłem. Powód: CLI tańsze w kontekście niż MCP, wynik w git, poprawka = mały patch.
 - `templates/visual-render.mjs`: szablon HTML + brief JSON + tokeny -> PNG/PDF, wykrywa przepełnienie i wyjście poza artboard (przetestowane: polskie znaki, PDF, błąd przy przepełnieniu). Przepięte: orkiestrator, `hq:ux-ui`, brand (referencje i brandbook slajdy), szablony context/org.

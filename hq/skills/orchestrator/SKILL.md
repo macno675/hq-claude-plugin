@@ -25,6 +25,7 @@ Wybierz **jeden** wiersz. Skill domenowy wczytaj (Skill) dopiero po wyborze; jeg
 | przegląd diffu, ryzyka zmiany | agent `hq:reviewer` |
 | szybki fakt, lookup, streszczenie dokumentu | agent `hq:researcher` |
 | research rynku/konkurencji/technologii, weryfikacja informacji, źródła przed decyzją | skill `hq:research` |
+| potrzebna wiedza z zewnątrz (Perplexity), świeże pomysły/funkcje/druga opinia (ChatGPT), obraz, wizualizacja, streszczenie YouTube (Gemini) | skill `hq:external-ai` (prompt do wklejenia; obok innej trasy) |
 | kupno, wybór produktu, szukanie sprzętu/oferty/dostawcy, porównanie ofert | skill `hq:research` (`references/purchasing.md`) |
 | nowy produkt/urządzenie wielodyscyplinarne, "od pomysłu do produkcji" | skill `hq:product` |
 | architektura systemu, moduły, interfejsy | agent `hq:system-architect` (w produkcie: przez `hq:product`) |
@@ -69,6 +70,7 @@ Paczka dla agenta, telegraficznie:
 - Stała linia: "Czytaj fragmenty (grep, offset/limit), nie całe pliki; ogranicz wyniki poleceń (tail, tylko błędy); nie czytaj plików spoza listy; zwróć ≤N tokenów, bez kodu i logów."
 - Zadanie dotyka wyglądu, tekstów lub komunikacji: dołącz linię `Marka:` z hooka (tryb + ścieżki). Agent czyta pliki sam; nie wklejaj brandbooka.
 - **Branding, grafika, kolory, ekrany, mockupy, wykresy = HTML/SVG + Playwright (lokalnie, tokeny w jednym pliku).** Zanim ruszysz, przeczytaj `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/visual.md`: sprawdź node i Playwright, tokeny marki, pętla render-zrzut-ocena. Figma/MCP tylko na żądanie użytkownika. Agenci renderują sami lub dają specyfikację.
+- Zadanie potrzebuje wiedzy z zewnątrz, pomysłów lub obrazu: dopisz do paczki, że zamiast zgadywać lub długo przeszukiwać sieć agent może oddać gotowy prompt w sekcji **PROMPT ZEWNĘTRZNY** (narzędzie, tryb, powód, prompt) wg `${CLAUDE_PLUGIN_ROOT}/skills/external-ai/SKILL.md`.
 - Proste zadanie: `model: haiku`; ważna decyzja na tanim agencie (np. researcher): `model: sonnet`.
 
 - Najmniejsze uprawnienia: do paczki tylko to, co potrzebne - bez sekretów, danych osobowych, całej rozmowy i cudzych wyników bez potrzeby; zadanie zgodne z rolą agenta.
@@ -77,6 +79,7 @@ Równolegle tylko zadania niezależne i bez wspólnych plików; ≤3 agentów na
 
 ## 4. Protokół zwrotu
 - Agenci nie rozmawiają z użytkownikiem. Sekcję **PYTANIA/DECYZJE** z ich zwrotu zadajesz Ty (`AskUserQuestion`, ≤4 pytania, opcje z rekomendacją).
+- Sekcję **PROMPT ZEWNĘTRZNY** pokaż użytkownikowi w formie z `hq:external-ai`; odpowiedź z zewnętrznego AI sprawdź wg tego skilla, zanim przekażesz ją agentowi.
 - Wzmianka agenta o innym `hq:*` (np. "koszt: `hq:budget`") = Twoje następne zlecenie, nie jego. Subagent nie woła subagentów.
 - Tagi `[DOWÓD]`/`[ZAŁOŻENIE]`, `DO WERYFIKACJI` przekazuj użytkownikowi bez wygładzania.
 

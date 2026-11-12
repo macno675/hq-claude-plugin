@@ -36,7 +36,7 @@ Ty (główny wątek) zadajesz użytkownikowi pytania (`AskUserQuestion`, paczki 
 Przeglądy bramek U3, U4, U7: `hq:design-reviewer`. Nie przechodź dalej bez zatwierdzenia bramki.
 
 ## Reużywaj, co już jest
-Dane ilościowe o zachowaniach i wyniki ankiet: `hq:data-analysis`; research użytkowników i konkurencji: `hq:research`.
+Dane ilościowe o zachowaniach i wyniki ankiet: `hq:data-analysis`; research użytkowników i konkurencji: `hq:research`. Wzorce ekranów u konkurencji i "jak to robią najlepsi": prompt do Perplexity; streszczenie filmu o projektowaniu: Gemini; zdjęcia i koncepty: Gemini (`hq:external-ai`).
 Jeśli dostępne, korzystaj z istniejących skilli zamiast pisać od zera: `design:accessibility-review`, `design:design-critique`, `design:ux-copy`, `design:design-handoff`, `frontend-design`. Szczegóły procesu: `references/ux-process.md`, `references/ui-system.md`. Na żądanie: `references/premium-craft.md` (status/cofnięcie/błędy, testy długiej sesji i psucia, emocje), `references/direction-and-patterns.md` (poziomy 1-4, rubryka 15 pkt, wzorce list i filtrów), `references/onboarding-paywall.md` (długość onboardingu, paywall), `references/anti-slop.md` (przepływ spec -> referencja -> system -> ekrany, lista wykrywania generyczności). Kontrast: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/brand/scripts/contrast.py`.
 
 ## Definicja gotowości
