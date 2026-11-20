@@ -12,6 +12,6 @@ Slop = poprawne, ale generyczne: szablonowy układ, ilustracje SVG z domyślnych
 7. **Ten sam system dla każdego materiału:** strona, menu/druk, posty social, prezentacje generuj z tych samych tokenów (spójność marki, `brandscan.py`).
 
 ## Lista wykrywania slopu (dla autoprzeglądu i recenzenta)
-Domyślny font (Inter/Roboto/system) bez powodu · fioletowo-niebieski gradient · identyczne karty z cieniem i zaokrągleniem w siatce 3 kolumn · ikony z jednego pakietu w kółkach · hero "nagłówek + podtytuł + dwa przyciski + mockup" · stockowe SVG-bohaterowie · brak własnego motywu przewodniego (jedno zdanie wizji) · brak decyzji "czego nie robimy" · te same odstępy wszędzie, bez rytmu · brak stanów błędu/pustych (`premium-craft.md`) · tekst pisany "marketingowo" bez głosu marki. Dwa lub więcej trafień = wróć do kroku 2-3.
+Domyślny font (Inter/Roboto/system) bez powodu · fioletowo-niebieski gradient · identyczne karty z cieniem i zaokrągleniem w siatce 3 kolumn · ikony z jednego pakietu w kółkach · hero "nagłówek + podtytuł + dwa przyciski + mockup" · stockowe SVG-bohaterowie · brak własnego motywu przewodniego (jedno zdanie wizji) · brak decyzji "czego nie robimy" · te same odstępy wszędzie, bez rytmu · brak stanów błędu/pustych (`premium-craft.md`) · tekst pisany "marketingowo" bez głosu marki. Dwa lub więcej trafień = wróć do kroku 2-3. Logo i znaki: osobna lista w `brand/references/logo.md` L4a.
 
 Pomocnicze: skill `frontend-design` (kierunek estetyczny, nieszablonowe wybory), `design:design-critique`, rubryka 15 pkt (`direction-and-patterns.md`).

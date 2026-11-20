@@ -1,6 +1,6 @@
 # Brandbook <Marka> · wersja 0.1 · <data>
 Właściciel marki: <kto> · Zmiany: patrz "Historia wersji" na końcu
-<!-- Uzupełniaj konkretami (wartości, rozmiary, przykłady). Brak danych = DO WERYFIKACJI. Pokazuj poprawne ORAZ błędne użycia. -->
+<!-- Uzupełniaj konkretami (wartości, rozmiary, przykłady). Brak danych = DO WERYFIKACJI. Pokazuj poprawne ORAZ błędne użycia. Każda reguła: zasada · powód · przykład · wyjątek · plik. Status elementu: propozycja / zatwierdzone / sprawdzone. -->
 
 ## Szybki start (1 strona)
 Logo: <plik, wersja podstawowa> · Kolory: <3-5 HEX> · Fonty: <nagłówki / tekst> · Ton: <3 słowa> · Nie rób: <3 zakazy> · Kontakt do właściciela: <kto>
@@ -17,6 +17,9 @@ Kim jest marka · Misja (dlaczego istnieje) · Wizja · Wartości (z jednym zach
 ## 2. Strategia
 Pozycjonowanie (jedno zdanie) · Grupa docelowa (potrzeby, bariery) · Przewaga konkurencyjna · Konkurenci i czym się różnimy · Osobowość (skale: formalna-swobodna, ekspercka-przystępna, emocjonalna-rzeczowa; wybór + "nie jesteśmy") · Cele komunikacji
 
+## 2a. Zasada systemu
+Idea identyfikacji (1 zdanie) · Stałe · Zmienne · Źródło rozpoznawalności · Elastyczność (spokojnie vs ekspresyjnie) · Zachowanie w skrajnych formatach · Reguły treści (czego nie kadrować, na czym nie kłaść tekstu)
+
 ## 3. Logo
 Wersja podstawowa · pozioma · pionowa · sygnet · mono · na ciemnym tle · Pole ochronne · Minimalny rozmiar (druk/ekran) · Proporcje i wyrównanie · Testy (małe/duże, czarne/białe, jasne/ciemne tło) · Błędne użycia (przykłady) · Formaty plików
 
@@ -28,7 +31,10 @@ Uzasadnienie ze strategii i mapa kategorii (co zajęte, czym się różnimy) · 
 Uzasadnienie ze strategii i mapa kategorii · Font podstawowy · display · mono/liczby · pomocniczy · nagłówki · tekst · interfejs · Dozwolone grubości · Hierarchia (H1-H4, tekst, podpis: rozmiar/interlinia/odstęp) · Zasady ekran vs druk · Licencje i źródło fontów · Zamienniki awaryjne
 
 ## 6. Grafika
-Ikony (styl, siatka, grubość linii) · Ilustracje · Wzory i tekstury (motyw główny: pochodzenie/kształt/znaczenie; wzór główny, pomocniczy, akcentowy, teksturalny, ruchomy: zastosowanie/skala/kolory; wersje mono; zasady i błędne użycia) · Linie, ramki, siatki, marginesy · Zasady kompozycji · Animacje · Elementy interfejsu · Szablony
+Ikony (styl, siatka, grubość linii) · Ilustracje · Wzory i tekstury (motyw główny: pochodzenie/kształt/znaczenie; wzór główny, pomocniczy, akcentowy, teksturalny, ruchomy: zastosowanie/skala/kolory; wersje mono; zasady i błędne użycia) · Linie, ramki · Animacje · Elementy interfejsu · Szablony
+
+## 6a. Kompozycja
+Siatki (formaty) · Marginesy i rytm odstępów · Położenie logo · Hierarchia informacji · Tekst a obraz · Wzorcowe układy: wizerunkowy / informacyjny / gęsty · Zachowanie w proporcjach (wąski, szeroki, kwadrat)
 
 ## 7. Fotografia
 Klimat i emocje · słownik wizualny · typy zdjęć · Światło (rodzaj, temperatura) · Kompozycja i kadrowanie · Kolorystyka/LUT · Tła · Ludzie · Retusz (dozwolony/zakazany) · Stock i licencje · Shot list · Tematy · Przykłady zgodne i niezgodne · Czego nie publikować
@@ -37,10 +43,10 @@ Klimat i emocje · słownik wizualny · typy zdjęć · Światło (rodzaj, tempe
 Głos marki · Zasady pisania (zapis nazwy, wielkość liter, skróty, forma zwracania się) · Słownictwo preferowane i zakazane · Hasło i narracja · Przykłady komunikatów (powitanie, sukces, błąd, reklamacja, status zamówienia, aktualizacja) · Obsługa klienta · Media społecznościowe
 
 ## 9. Zastosowania
-Strona/aplikacja · Social media · E-mail · Prezentacje i dokumenty · Druk (wizytówki, plakaty, ulotki) · Opakowanie · **Produkt**: obudowa, oznaczenia, silkscreen PCB, interfejs i komunikaty urządzenia, instrukcja · Materiały reklamowe (każde: mockup + zasady)
+Strona/aplikacja · Social media · E-mail · Prezentacje i dokumenty · Druk (wizytówki, plakaty, ulotki) · Opakowanie · **Produkt**: obudowa, oznaczenia, silkscreen PCB, interfejs i komunikaty urządzenia, instrukcja · Materiały reklamowe (każde: mockup + zasady) · **Testy obciążeniowe**: test | wynik | problem | poprawka (długi nagłówek, dużo treści, słabe/brak zdjęcia, wąski/szeroki, mały, mono) · Test przekazania (nowy materiał tylko z brandbooka): wynik
 
 ## 10. Zasady techniczne i zarządzanie
-Formaty i eksport · Biblioteka zasobów (lokalizacja) · Zgłaszanie wyjątków · Zatwierdzanie materiałów · Przegląd marki (kiedy) · Odświeżenie vs rebranding (kryteria)
+Formaty i eksport (źródło / publikacja / podgląd / makieta) · Biblioteka zasobów (struktura 01-09, `manifest.tsv`) · Kontrola jakości (8 obszarów z dowodem, uwagi A/B/C/D) · Niewykonane testy i DO WERYFIKACJI · Zgłaszanie wyjątków · Zatwierdzanie materiałów · Przegląd marki (kiedy) · Odświeżenie vs rebranding (kryteria)
 
 ## Historia wersji
 | Wersja | Data | Zmiana | Kto |

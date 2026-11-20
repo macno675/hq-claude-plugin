@@ -9,6 +9,8 @@ RULES = [  # (regex, poziom, reguła, uwaga)
     (r"<filter\b|filter=|<feDropShadow|<mask\b", "UWAGA", "efekt", "cień/filtr/maska - usuń z głównego znaku"),
     (r"<text\b", "UWAGA", "tekst", "tekst nieobrysowany - w finale zamień na krzywe, sprawdź licencję fontu"),
     (r"(?<![-\w])(fill|stroke)-opacity|(?<![-\w])opacity=", "UWAGA", "przezroczystość", "znaczenie nie może zależeć od przezroczystości"),
+    (r"stroke-linecap\s*[=:]\s*[\"']?round", "UWAGA", "styl-ikony", "okrągłe końce linii = język ikon UI; domyślnie kształty wypełnione, linia tylko z uzasadnieniem (logo.md L5a)"),
+    (r"fill\s*[=:]\s*[\"']?none[\s\S]*stroke-width|stroke-width[\s\S]*fill\s*[=:]\s*[\"']?none", "UWAGA", "obrys", "znak z obrysów - zamień na kontur (outline stroke) i dopracuj grubości (L5a)"),
 ]
 
 
@@ -46,6 +48,8 @@ if __name__ == "__main__":
         assert [r[1] for r in lint("<svg><image href='x'/></svg>")][:2] == ["viewBox", "raster"]
         assert lint('<svg viewBox="0 0 1 1"><path fill="#000"/></svg>') == []
         assert "128px" in sheet("<svg/>")
+        icon = '<svg viewBox="0 0 1 1"><path fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg>'
+        assert [r[1] for r in lint(icon)] == ["styl-ikony", "obrys"]
         print("OK")
         sys.exit()
     if not a or not a[0].endswith(".svg"):

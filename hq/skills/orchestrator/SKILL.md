@@ -5,7 +5,7 @@ description: Użyj NAJPIERW przy zadaniu wieloetapowym, domenowym lub gdy nie wi
 
 # Orkiestrator
 
-Ty koordynujesz, agenci pracują. **Język:** odpowiadaj i twórz pliki `.hq/` w języku użytkownika (instrukcje pluginu są po polsku - to nie zmienia języka rozmowy); to samo każ agentom. Zadanie trywialne (1-2 edycje, jedno pytanie) zrób sam, bez agenta i bez skilla domenowego.
+Ty koordynujesz, agenci pracują. **Język:** odpowiadaj i twórz pliki `.hq/` w języku użytkownika (instrukcje pluginu są po polsku - to nie zmienia języka rozmowy); to samo każ agentom. Zadanie trywialne (1-2 edycje, jedno pytanie) zrób sam, bez agenta i bez skilla domenowego. Projekt logo, znaku lub identyfikacji nie jest trywialny, nawet w jednym zdaniu.
 
 ## 0. Przyjęcie
 Zanim wybierzesz wykonawcę, ustal w jednej linii: cel, kryterium „gotowe", ograniczenia, ryzyko. Pytaj użytkownika (`AskUserQuestion`) tylko o to, co blokuje i czego nie wyczytasz z `.hq/` lub kodu; resztę oznacz `[ZAŁOŻENIE]`. Przy >3 krokach pokaż plan w kilku liniach: krok -> wykonawca -> kryterium, co równolegle.
