@@ -44,4 +44,8 @@ F="$(cd "$(dirname "$0")/.." && pwd)/hq/hooks/filter-bash.sh"; mkdir -p "$T/bin"
 printf '#!/bin/bash\necho "FAIL: x"; echo "1 failed"; exit 3\n' >"$T/bin/pytest"; chmod +x "$T/bin/pytest"
 c=$(jq -nr --arg c "pytest" '{tool_input:{command:$c}}' | HQ_FILTER_OUTPUT=1 bash "$F" | jq -r '.hookSpecificOutput.updatedInput.command')
 o=$(PATH="$T/bin:$PATH" bash -c "$c"); rc=$?; [ $rc = 3 ] || { echo "FAIL: filtr zgubił kod wyjścia ($rc)"; fail=1; }; ok "$o" "FAIL: x" "filtr pokazuje błąd"; ok "$o" "exit=3" "filtr podaje kod"
+# prośba o logo (także kontynuacja rozmowy) = przypomnienie o warunku startu; inna prośba = cisza
+lg() { jq -nc --arg p "$1" '{prompt:$p,transcript_path:"/brak",session_id:"lg"}' | TMPDIR="$T" HQ_REMIND_EVERY=999 bash "$H" check; }
+o=$(lg "Stwórz teraz 4 propozycje logo"); ok "$o" "Warunek startu" "logo: przypomnienie"
+o=$(lg "Napraw test w kalendarzu"); [ -z "$o" ] || { echo "FAIL: przypomnienie logo bez logo"; fail=1; }
 [ $fail = 0 ] && echo "hooki: OK" || exit 1
