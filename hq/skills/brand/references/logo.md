@@ -1,5 +1,7 @@
 # Logo: profesjonalny proces (2026)
 
+**Czytaj cały plik (bez limitu linii)** przed rysowaniem: L00, L01 i L5a decydują o jakości.
+
 Logo to **system znaków** wynikający ze strategii, nie jeden ładny obrazek. Kolejność: strategia -> research -> kierunki -> szkice -> wybór -> wektor -> typografia -> kolor -> testy -> pliki + zasady. Nie zaczynaj od pliku wektorowego ani od generowania obrazów.
 
 ## L00 Etapy z postojem (każda prośba o logo, także „zaproponuj 4 logo”)
@@ -13,6 +15,24 @@ Kolejność: brief -> kierunki -> projekty -> krytyka -> dopracowanie. **Po kier
 4. **Dopracowanie** wybranego znaku wg L4d; nie generuj kolejnych zestawów.
 
 Czego **nie** wymuszać: logo nie musi być zagadką, ukrytą literą ani połączeniem dwóch symboli; nie musi przedstawiać branży; prosta geometria jest dozwolona, ale nie zastępuje pomysłu. Opis nie ratuje słabego znaku; ogólniki („rozwój”, „innowacja”, „połączenie”, „nieskończone możliwości”) są zakazane jako uzasadnienie. Oddzielaj sprawdzone (render, test) od własnej oceny.
+
+## L01 Zgodność z briefem i uczciwość opisu (przed każdą prezentacją)
+- **Nie dopisuj celów:** znaczenie nazwy (np. „Up” = wzrost), ruch, technologia, dynamika to hipotezy - zapytaj („czy wzrost ma być w znaku, czy wystarczy nazwa?”), nie wymóg. Napięcie briefu buduj tylko z cech, które wybrał użytkownik.
+- **Zakres:** prosi o sygnet = 4 sygnety; wordmark lub system sygnet + logotyp tylko za zgodą, osobno, nie zamiast propozycji. „Wszędzie tak samo” rozstrzygnij: ta sama tożsamość czy ten sam plik i układ; ustal priorytet (ikona aplikacji, nagłówek, widżet, favicon).
+- **Zakazy oceniaj po widocznej formie:** znak, który wygląda jak zakazana litera lub motyw (np. zagnieżdżone „L”), jest niezgodny, nawet gdy nazwiesz go inaczej - przerysuj albo odrzuć.
+- **Opis = wykonanie:** zapowiedziany zabieg (przesunięcie, autorska litera, przestrzeń negatywowa) wskaż w gotowym rysunku; niewidoczny = popraw rysunek albo wycofaj opis. Samo pogrubienie lub zmiana wagi fontu to nie koncepcja.
+- **Nazwane ryzyko to nie rozwiązane ryzyko:** jeśli plansza nadal wygląda jak „split”, słońce czy warstwy, powiedz to i przerysuj, zamiast powtarzać ostrzeżenie.
+- **Hipoteza ≠ test:** pisz „przewidywane ryzyko / wymaga sprawdzenia / potwierdzone w pokazanym teście”. Nie odrzucaj kierunku za nieprzeprowadzony test. Pomniejszenie na planszy to podgląd; test 16/32 px = render w tym rozmiarze 1:1 (`scripts/logotest.py --sheet`) i obejrzany zrzut.
+- **Druga runda:** po ocenie użytkownika nie generuj nowej czwórki; kontrolowane studium wybranych kierunków (po 3 warianty, jeden parametr: proporcja, odstęp, relacja części), ocena wg cech z briefu i zakazów; kierunek bez potencjału nazwij do porzucenia.
+
+## L5a Rzemiosło znaku (co odróżnia znak z portfolio od ikony)
+- **Domyślnie kształty wypełnione, nie zakaz linii.** Znak to zwykle sylwetka (`<path fill>`) z własnymi grubościami; linia o stałej grubości i `stroke-linecap="round"` to język ikon UI. Linia dozwolona, gdy wynika z idei kierunku (napisz dlaczego) - wtedy zamień ją na kontur (outline stroke), dopracuj grubości i końce.
+- **Figura i tło pracują razem:** czarna przestrzeń jest częścią konstrukcji (wcięcie, szczelina, przestrzeń negatywowa tworząca drugi kształt), nie pustym miejscem wokół figury.
+- **Jedna świadoma decyzja** daje charakter: cięcie pod konkretnym kątem, kontrast łuku i ostrej krawędzi, przesunięcie, asymetria, zmiana grubości, nietypowa proporcja. Jedna, nie pięć detali; nie dodawaj asymetrii ani nacięcia wyłącznie „dla oryginalności”. Zakończenia ostre lub miękkie wg charakteru kierunku; spójne krzywe bez wymuszania jednego promienia wszędzie.
+- **Konstrukcja z regułą:** siatka, stałe kąty (np. 0/45/90 albo jeden kąt marki), promienie z jednej skali, odstępy z modułu; zapisz regułę w 1 zdaniu pod znakiem.
+- **Optyka, nie geometria:** grubości poziome nieco cieńsze od pionowych, koła i ostre wierzchołki wychodzą poza linię, szczeliny ≥ ~8% wysokości znaku, żeby nie zalały się w 32 px; łączenia i zakończenia celowe (ostre, ścięte albo zaokrąglone - wybór, nie domyślne).
+- **Masa i sylwetka:** znak ma rozpoznawalny obrys po zamazaniu (test: rozmycie lub 16 px); przewaga bieli nad cienkimi liniami daje wagę marki.
+- **Prostota z redukcji idei:** zacznij od bogatszego szkicu idei i usuwaj, aż usunięcie kolejnego elementu niszczy ideę.
 
 ## L0 Brief (z B1 + wywiad; brak odpowiedzi = zapytaj)
 Kim jest marka, dla kogo, jaki problem, wartości, postrzeganie (skale osobowości), różnica wobec konkurencji, **gdzie logo będzie używane** (ekran/druk/grawer/haft/animacja/urządzenie), ograniczenia prawne i techniczne, nazwa (długość, litery wysokie/niskie, inicjały). **Głos przed rysowaniem:** 5 słów, których marka nigdy by nie użyła · 5 słów, które nadużywa · 1 zdanie-tweet o marce (wyznaczają temperaturę emocjonalną znaku; uzupełnij z `brandbook.md`, jeśli jest).
@@ -72,15 +92,6 @@ Plansza 2x2 (lub rząd): równe pola, spójne marginesy, **porównywalna wielko�
 
 ## L5 Konstrukcja wektorowa
 Siatka konstrukcyjna, spójne grubości linii, promienie i kąty, **optyczne wyrównanie** (okręgi i „O” lekko większe/wystające, ukośne korekty), odstępy, krzywe z minimum punktów. **Monochrom najpierw**: forma musi działać czarno-biała, kolor dodajesz później. Zero gradientów, cieni, tekstur, efektów 3D, filtrów, przezroczystości jako nośnika znaczenia (nie przeżyją druku jednokolorowego, grawerunku, haftu).
-
-## L5a Rzemiosło znaku (co odróżnia znak z portfolio od ikony)
-- **Domyślnie kształty wypełnione, nie zakaz linii.** Znak to zwykle sylwetka (`<path fill>`) z własnymi grubościami; linia o stałej grubości i `stroke-linecap="round"` to język ikon UI. Linia dozwolona, gdy wynika z idei kierunku (napisz dlaczego) - wtedy zamień ją na kontur (outline stroke), dopracuj grubości i końce.
-- **Figura i tło pracują razem:** czarna przestrzeń jest częścią konstrukcji (wcięcie, szczelina, przestrzeń negatywowa tworząca drugi kształt), nie pustym miejscem wokół figury.
-- **Jedna świadoma decyzja** daje charakter: cięcie pod konkretnym kątem, kontrast łuku i ostrej krawędzi, przesunięcie, asymetria, zmiana grubości, nietypowa proporcja. Jedna, nie pięć detali; nie dodawaj asymetrii ani nacięcia wyłącznie „dla oryginalności”. Zakończenia ostre lub miękkie wg charakteru kierunku; spójne krzywe bez wymuszania jednego promienia wszędzie.
-- **Konstrukcja z regułą:** siatka, stałe kąty (np. 0/45/90 albo jeden kąt marki), promienie z jednej skali, odstępy z modułu; zapisz regułę w 1 zdaniu pod znakiem.
-- **Optyka, nie geometria:** grubości poziome nieco cieńsze od pionowych, koła i ostre wierzchołki wychodzą poza linię, szczeliny ≥ ~8% wysokości znaku, żeby nie zalały się w 32 px; łączenia i zakończenia celowe (ostre, ścięte albo zaokrąglone - wybór, nie domyślne).
-- **Masa i sylwetka:** znak ma rozpoznawalny obrys po zamazaniu (test: rozmycie lub 16 px); przewaga bieli nad cienkimi liniami daje wagę marki.
-- **Prostota z redukcji idei:** zacznij od bogatszego szkicu idei i usuwaj, aż usunięcie kolejnego elementu niszczy ideę.
 
 ## L6 Typografia logo
 Font, grubość, odstępy (kerning ręcznie), proporcje, relacja sygnet-nazwa, wariant dla małych rozmiarów (większe odstępy, grubsze kreski). Nowoczesnie: prosta bezszeryfowa, 1-2 grubości. Font zmienny (waga, szerokość, pochylenie) ułatwia dopasowanie nazwy do sygnetu bez przebudowy liter; dopracuj ostateczne wartości ręcznie. **Tekst w finalnym SVG zamień na krzywe** (obrys), ale zachowaj wersję edytowalną; sprawdź licencję fontu na logo/znak towarowy. Polskie znaki, jeśli nazwa je zawiera.

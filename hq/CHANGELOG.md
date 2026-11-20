@@ -1,5 +1,9 @@
 # Changelog hq
 
+## 1.14.2 · 2026-11-20
+- Test na żywo 1.14.1: proces zadziałał (pytania, studium formy vs marka, 6 kierunków, postój na wybór), ale czat czytał `logo.md` z limitem 80 linii i nie dotarł do rzemiosła L5a; dopisał cel z nazwy („Up” = wzrost), podmienił sygnet na wordmark, wariant przypominał zakazaną literę, opis zabiegu nie był widoczny w rysunku, pomniejszenie uznał za test 16 px.
+- `logo.md`: nakaz czytania całego pliku; nowa **L01** (nie dopisuj celów z nazwy, zakres bez zmian bez zgody, zakazy wg widocznej formy, opis = wykonanie, nazwane ryzyko ≠ rozwiązane, hipoteza ≠ test, druga runda jako kontrolowane studium); L5a przeniesiona na początek pliku. Hook i `hq:brand` wskazują L00/L01/L5a.
+
 ## 1.14.1 · 2026-11-20
 - Test na żywo 1.14.0 nie przeszedł: przy „Stwórz teraz 4 propozycje logo” w trwającej rozmowie czat nie wczytał żadnego skilla i narysował od razu; wcześniej, nawet po wczytaniu `hq:brand`, nie czytał `references/logo.md`. Zasady w referencjach nie miały szans zadziałać.
 - Hook `UserPromptSubmit` (`context-guard.sh check`): prośba o logo, sygnet lub identyfikację dostaje przypomnienie o warunku startu, postoju po kierunkach i „motywy ≠ kierunki” (test w `tools/test_hooks.sh`).

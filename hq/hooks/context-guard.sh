@@ -62,7 +62,7 @@ case "$1" in
     command -v jq >/dev/null || exit 0
     # Logo: zasady z referencji nie działały, gdy czat pomijał skill (kontynuacja rozmowy) - przypominamy przy każdej takiej prośbie.
     if jq -r '.prompt // empty' <<<"$in" | grep -qiE 'logo|sygnet|logotyp|logomark|znak marki|identyfikacj'; then
-      echo "[hq] Logo: zanim cokolwiek narysujesz, wczytaj skill hq:brand i references/logo.md (L00). Warunek startu: znasz markę i ofertę, odbiorców, pożądane wrażenie, główne użycie, ograniczenia. Brak = zapytaj (≤5 pytań) albo zaproponuj 'studium formy' bez uzasadnienia biznesowego. Potem kierunki tekstem i STOP na wybór; dopiero zatwierdzone kierunki rysujesz. Różne motywy (człowiek, roślina, fala, strzałka) to nie różne kierunki."
+      echo "[hq] Logo: zanim cokolwiek narysujesz, wczytaj skill hq:brand i CAŁY references/logo.md (L00, L01, L5a). Warunek startu: znasz markę i ofertę, odbiorców, pożądane wrażenie, główne użycie, ograniczenia. Brak = zapytaj (≤5 pytań) albo zaproponuj 'studium formy' bez uzasadnienia biznesowego. Potem kierunki tekstem i STOP na wybór; dopiero zatwierdzone kierunki rysujesz. Różne motywy (człowiek, roślina, fala, strzałka) to nie różne kierunki. Nie dopisuj celów z nazwy, nie zmieniaj zakresu, opis musi być widoczny w rysunku."
     fi
     f=$(jq -r '.transcript_path // empty' <<<"$in"); sid=$(jq -r '.session_id // "x"' <<<"$in")
     [ -f "$f" ] || exit 0
