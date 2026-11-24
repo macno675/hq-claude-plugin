@@ -51,4 +51,6 @@ o=$(lg "Napraw test w kalendarzu"); [ -z "$o" ] || { echo "FAIL: przypomnienie l
 # słowo-klucz głęboko we wklejonym tekście = cisza; prośba o makietę = przypomnienie hq:views
 o=$(lg "Przeanalizuj odpowiedzi i wdróż zmiany. $(printf 'x%.0s' {1..500}) logotypy partnerów"); [ -z "$o" ] || { echo "FAIL: przypomnienie z głębi wklejonego tekstu"; fail=1; }
 o=$(lg "Zaprojektuj stronę agroturystyki, najpierw makieta"); ok "$o" "hq:views" "widoki: przypomnienie"
+o=$(lg "Makiety zatwierdzone, ustal styl strony z liquid glass"); ok "$o" "hq:look" "wygląd: przypomnienie"
+o=$(lg "Popraw literówkę w stopce"); no "$o" "hq:look" "wygląd: cisza bez prośby o styl"
 [ $fail = 0 ] && echo "hooki: OK" || exit 1

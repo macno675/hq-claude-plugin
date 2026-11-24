@@ -26,7 +26,7 @@ Uruchamiaj tylko dyscypliny, których produkt potrzebuje. Mały moduł PCB = str
 | Mechanika, obudowa, termika | `hq:mechanical-engineer` | sonnet |
 | Marka i brandbook (strategia, identyfikacja, język) - **przed designem produktu** | skill `hq:brand` (`brand-strategist`, `brand-designer`, `brand-copywriter`) | - |
 | Design produktu fizycznego, feeling i feedback sprzętowy (dziedziczy markę) | `hq:industrial-designer` | sonnet |
-| Doświadczenie i interfejs cyfrowy (aplikacja, strona, panel, ekran urządzenia) | skill `hq:views` (plan widoków i makiety po architekturze, przed wyglądem), potem `hq:ux-ui` (`ux-designer`, `ui-designer`) | sonnet |
+| Doświadczenie i interfejs cyfrowy (aplikacja, strona, panel, ekran urządzenia) | skill `hq:views` (plan widoków i makiety po architekturze, przed wyglądem), potem `hq:look` (styl), `hq:ux-ui` (`ux-designer`, `ui-designer`) | sonnet |
 | Testy, walidacja, jakość, przyczyny źródłowe | `hq:qa-engineer` | sonnet |
 | Produkcja, łańcuch dostaw, serwis | `hq:manufacturing-engineer` | sonnet |
 | Niezależny przegląd każdej bramki | `hq:design-reviewer` | opus |

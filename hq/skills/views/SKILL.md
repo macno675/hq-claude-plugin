@@ -5,7 +5,7 @@ description: Plan widoków przed kodem - mapa podstron/ekranów, spis bloków z 
 
 # Widoki: co gdzie i dlaczego, zanim powstanie wygląd i kod
 
-Po ustaleniu fundamentu (problem, funkcje, architektura), a przed wyglądem (`hq:ux-ui` U4) i kodem (`hq:frontend`), planujesz **wszystkie widoki**: jakie podstrony/ekrany, co na nich jest, w jakiej kolejności i po co. Wynik to specyfikacja widoków + szare makiety HTML (szare pola z etykietą typu, bez kolorów, fontów marki i copywritingu). Makieta to kontrakt dla UI i kodu, nie obrazek. Wykonuje agent `ux-designer`; Ty pytasz użytkownika i pokazujesz zrzuty.
+Po ustaleniu fundamentu (problem, funkcje, architektura), a przed wyglądem (`hq:look`) i kodem (`hq:frontend`), planujesz **wszystkie widoki**: jakie podstrony/ekrany, co na nich jest, w jakiej kolejności i po co. Wynik to specyfikacja widoków + szare makiety HTML (szare pola z etykietą typu, bez kolorów, fontów marki i copywritingu). Makieta to kontrakt dla UI i kodu, nie obrazek. Wykonuje agent `ux-designer`; Ty pytasz użytkownika i pokazujesz zrzuty.
 
 ## Zasady
 1. **Najpierw specyfikacja, potem HTML.** Decyzje zapadają w spisie bloków, makieta je tylko pokazuje; HTML niezgodny ze specyfikacją to błąd.
@@ -39,7 +39,7 @@ Skala: **Mini** (landing, 1-3 widoki: V0-V1 razem, V3 skrót, V5-V8), **Standard
 - CLI/TUI: zamiast HTML zapis sesji terminala (polecenie -> wynik -> błąd -> pomoc) w `wireframes/*.txt`.
 
 ## Gdzie w procesie
-Wejście: `hq:product-management` (wymagania), `hq:system-architect` (moduły, dane). Wyjście: `hq:ux-ui` U4 (kierunek wizualny na zatwierdzonych makietach), `hq:frontend` (nie buduje nowego widoku bez `approved`), `hq:marketing` (treści i SEO na podstawie `seo.md`). Teksty na koniec: `design:ux-copy` lub `hq:brand` (język marki). Wiedza z zewnątrz o wzorcach branży: `hq:external-ai` (Perplexity).
+Wejście: `hq:product-management` (wymagania), `hq:system-architect` (moduły, dane). Wyjście: `hq:look` (styl na zatwierdzonych makietach), `hq:frontend` (nie buduje nowego widoku bez `approved`), `hq:marketing` (treści i SEO na podstawie `seo.md`). Teksty na koniec: `design:ux-copy` lub `hq:brand` (język marki). Wiedza z zewnątrz o wzorcach branży: `hq:external-ai` (Perplexity).
 
 ## Definicja gotowości
 `status.md` = `approved` z wersją i datą · każdy top task przechodzi ścieżkę bez martwych końców · każdy widok: cel, główna akcja (lub powód braku), bloki z powodem i danymi, stany · `wirecheck` bez FAIL na 360/768/1280 · `seo.md` dla stron publicznych · decyzje i odrzucone warianty w `decisions.md`. Potem `hq:context`.

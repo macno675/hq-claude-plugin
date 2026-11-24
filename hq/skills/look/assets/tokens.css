@@ -1,0 +1,48 @@
+/* Szablon tokenów hq:look, skala Mini. Wartości = przykład (Acme), zastąp wyprowadzonymi z widoku referencyjnego.
+   Zasada: komponenty używają tylko warstwy semantycznej; prymitywy tylko tutaj. stylecheck czyta wszystkie --* z :root. */
+:root {
+  /* prymitywy: neutralne z odcieniem marki (OKLCH), akcent, stany */
+  --n-0: oklch(99% 0.004 250); --n-50: oklch(96% 0.006 250); --n-200: oklch(88% 0.01 250);
+  --n-600: oklch(48% 0.015 250); --n-900: oklch(22% 0.02 250);
+  --accent-600: oklch(52% 0.16 255); --accent-700: oklch(45% 0.16 255);
+  --red-600: oklch(52% 0.19 27);
+
+  /* semantyczne: kolor */
+  --color-bg: var(--n-0); --color-surface: var(--n-50); --color-line: var(--n-200);
+  --color-text: var(--n-900); --color-text-muted: var(--n-600);
+  --color-accent: var(--accent-600); --color-accent-hover: var(--accent-700); --color-on-accent: var(--n-0);
+  --color-danger: var(--red-600);
+
+  /* typografia: role, skala płynna dla dużych */
+  --font-display: "Fraunces", Georgia, serif; --font-text: "Source Sans 3", "Segoe UI", sans-serif;
+  --size-display: clamp(2.25rem, 1.5rem + 3vw, 4rem); --size-heading: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --size-body: 1rem; --size-label: 0.8125rem;
+  --lh-tight: 1.15; --lh-body: 1.5;
+  --track-display: -0.02em; --track-label: 0.06em;
+
+  /* odstępy: komponenty i rytm sekcji to dwie skale */
+  --space-1: 4px; --space-2: 8px; --space-3: 16px; --space-4: 24px; --space-5: 40px;
+  --section-gap: clamp(56px, 8vw, 120px);
+
+  /* kształt i głębia: cień barwiony tłem */
+  --radius-s: 6px; --radius-m: 14px;
+  --shadow-1: 0 1px 2px oklch(22% 0.02 250 / 0.08), 0 2px 8px oklch(22% 0.02 250 / 0.06);
+  --shadow-2: 0 8px 24px oklch(22% 0.02 250 / 0.12);
+
+  /* ruch: czasy i krzywe wg osobowości interakcji */
+  --dur-fast: 140ms; --dur-base: 240ms; --dur-slow: 420ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1); --ease-in-out: cubic-bezier(0.6, 0, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--n-900); --color-surface: oklch(27% 0.02 250); --color-line: oklch(35% 0.02 250);
+    --color-text: var(--n-50); --color-text-muted: oklch(75% 0.01 250);
+    --color-accent: oklch(72% 0.13 255); --color-accent-hover: oklch(78% 0.12 255); --color-on-accent: var(--n-900);
+    --color-danger: oklch(74% 0.14 27);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; }
+}

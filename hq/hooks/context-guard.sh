@@ -68,7 +68,11 @@ case "$1" in
     fi
     # Widoki: plan i makieta przed wyglądem i kodem nowej strony/aplikacji.
     if grep -qiE 'makiet|wireframe|mapa (strony|serwisu)|sitemap|podstron|widok(i|ów) (strony|aplikacji)|zaprojektuj (stron|aplikacj|ekran|widok)' <<<"$head"; then
-      echo "[hq] Widoki: nowa strona/aplikacja/ekran = najpierw skill hq:views (ścieżki, mapa widoków, spis bloków z powodem, szare makiety mobile-first z wire.css, wirecheck). Wygląd (hq:ux-ui U4) i kod (hq:frontend) dopiero przy .hq/views/status.md = approved, który nadaje tylko użytkownik."
+      echo "[hq] Widoki: nowa strona/aplikacja/ekran = najpierw skill hq:views (ścieżki, mapa widoków, spis bloków z powodem, szare makiety mobile-first z wire.css, wirecheck). Wygląd (hq:look) i kod (hq:frontend) dopiero przy .hq/views/status.md = approved, który nadaje tylko użytkownik."
+    fi
+    # Wygląd: styl po makiecie przez hq:look, nie "ładne ekrany" od razu.
+    if grep -qiE 'kierunek wizualn|styl (strony|aplikacji|ui|interfejsu|wizualny)|wygląd (strony|aplikacji|interfejsu|ui)|design system|liquid glass|glassmorf|nadaj (styl|wygląd)|ostyluj|stylistyk|look and feel|ai slop' <<<"$head"; then
+      echo "[hq] Wygląd: styl UI = skill hq:look po zatwierdzonej makiecie (hq:views). Najpierw idea i DNA (G1, bez obrazków), potem 3 kierunki jako różne idee, nie bezpieczny/środkowy/odważny (G2), widok referencyjny (G3), tokeny, stylecheck + ślepy krytyk; approved nadaje tylko użytkownik. Użyteczność i WCAG > marka > efekt."
     fi
     f=$(jq -r '.transcript_path // empty' <<<"$in"); sid=$(jq -r '.session_id // "x"' <<<"$in")
     [ -f "$f" ] || exit 0

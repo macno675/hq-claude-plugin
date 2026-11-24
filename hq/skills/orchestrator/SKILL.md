@@ -41,7 +41,8 @@ Wybierz **jeden** wiersz. Skill domenowy wczytaj (Skill) dopiero po wyborze; jeg
 | backend, API, baza, integracje, authz, CI/CD, awaria produkcji | skill `hq:backend` |
 | frontend: komponenty, stan, integracja API w kliencie, wydajność/a11y UI | skill `hq:frontend` |
 | plan widoków przed kodem: jakie podstrony/ekrany, co na nich i w jakiej kolejności, makieta, wireframe, mapa strony, sitemap, mobile-first, struktura pod SEO | skill `hq:views` |
-| UX/UI: badania, problem, wygląd, design system, stany, prototyp, handoff | skill `hq:ux-ui` |
+| wygląd/styl UI po makiecie: kierunek wizualny, kolory i fonty interfejsu, tokeny, ruch, hover, efekty, trendy (np. szkło), „żeby nie wyglądało jak AI” | skill `hq:look` |
+| UX/UI: badania, problem, design system, stany, prototyp, handoff | skill `hq:ux-ui` |
 | marka, brandbook, logo, kolory, ton, nazwa; niespójna marka w kodzie/materiałach, odtworzenie marki | skill `hq:brand` |
 | organizacja, firma nadrzędna, wspólny styl wielu projektów, podpięcie projektu, tryb marki | skill `hq:org` |
 | strategia produktu, wizja, roadmapa, backlog RICE, wymagania | skill `hq:product-management` |

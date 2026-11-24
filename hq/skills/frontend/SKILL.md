@@ -17,7 +17,7 @@ Frontend developer to inżynier interfejsu, nie osoba "zamieniająca obrazek w k
 7. **API to kontrakt** (`.hq/backend/openapi.yaml`): uzgadniasz z backendem, nie dopasowujesz się do przypadkowej odpowiedzi.
 8. **Frontend nie jest jedyną linią obrony:** nie ufaj danym z przeglądarki, backend autoryzuje i waliduje.
 9. **Nowy widok tylko na zatwierdzonej makiecie:** `.hq/views/status.md` = `approved` obejmujący ten widok; brak = stop i propozycja `hq:views` (wyjątek: poprawka istniejącego widoku albo wyraźna decyzja użytkownika, zapisana w `decisions.md`). Struktura, kolejność bloków, nagłówki i linki `<a href>` jak w `.hq/views/specs/` i `seo.md`.
-10. **Tokeny z design systemu** (`tokens.css` z `hq:ux-ui`) jako jedyne źródło kolorów, odstępów, typografii; żadnych przypadkowych wartości.
+10. **Styl tylko zatwierdzony:** nowy widok stylizujesz, gdy `.hq/look/status.md` = `approved` (wyjątek jak w p. 9). **Tokeny** (`.hq/look/tokens.css`) jako jedyne źródło kolorów, odstępów, typografii, promieni, cieni i ruchu; żadnych przypadkowych wartości; przed oddaniem `stylecheck.mjs` z `hq:look` bez FAIL.
 
 ## Jak pracujesz
 Ty (główny wątek) zatwierdzasz bramki z użytkownikiem; `hq:frontend-engineer` implementuje. Decyzje do użytkownika: kompromisy względem projektu, nowe zależności o dużym koszcie, strategie renderowania/hostingu (ADR), cele wydajnościowe. Weryfikuj w **przeglądarce** (wbudowanej lub innej dostępnej) (zrzuty, rozmiary okna, konsola, sieć), nie na słowo honoru. Artefakty w `.hq/frontend/` (`structure.md`, `state.md`, `perf.md`, `a11y.md`).
