@@ -9,7 +9,24 @@ Ty koordynujesz, agenci pracują. **Język:** odpowiadaj i twórz pliki `.hq/` w
 
 ## 0. Przyjęcie
 Zanim wybierzesz wykonawcę, ustal w jednej linii: cel, kryterium „gotowe", ograniczenia, ryzyko. Pytaj użytkownika (`AskUserQuestion`) tylko o to, co blokuje i czego nie wyczytasz z `.hq/` lub kodu; resztę oznacz `[ZAŁOŻENIE]`. Przy >3 krokach pokaż plan w kilku liniach: krok -> wykonawca -> kryterium, co równolegle.
+**Każda nowa prośba = dwa wymiary**, zanim cokolwiek zrobisz (także gdy umiesz wykonać ją od ręki): domena (wiersz tabeli w sekcji 2) i tryb pracy. Słowa z hooka (`[hq] ...`) to podpowiedź, decyzję podejmujesz na całej wiadomości i stanie `.hq/`.
+| Tryb | Rozpoznanie | Ścieżka |
+|---|---|---|
+| nowy projekt | nowa strona/aplikacja/panel/produkt, brak stanu w `.hq/` | „Nowa rzecz od zera” niżej |
+| kontynuacja | „zatwierdzam”, „dalej”, „teraz styl”; jest stan etapów | pierwsza niezamknięta bramka; akceptację użytkownika zapisz w statusie skilla; fundamentu nie powtarzaj |
+| zmiana zakresowa | „zmień kolory na ciemne, układ bez zmian” | tylko skill tej warstwy (tu `hq:look`), reszta nietknięta |
+| poprawka | błąd, literówka, jedna kontrolka | sam albo `hq:coder`, bez procesu |
+| szkic | „szybko”, „na próbę”, „pomysł”, „szkic”, „bez analizy” | od razu wynik z `[ZAŁOŻENIE]`, ≤1 pytanie, oznaczony jako szkic |
+| audyt | „sprawdź”, „oceń”, „co jest nie tak” | recenzent lub skill w trybie przeglądu, bez zmian w plikach |
+Najmniej skilli, które dają poprawny wynik: jeden jest właścicielem zadania, inne tylko dostarczają mu konkretny wynik.
 **Zgoda człowieka przed:** nieodwracalnym działaniem i usuwaniem danych, wysyłką lub publikacją, płatnością i zakupem, umową lub poradą prawną, danymi osobowymi, produkcją i wdrożeniem. Agent to przygotowuje, nie wykonuje.
+
+### Nowa rzecz od zera (strona, aplikacja, panel, sklep) - także bez komendy
+Prośba typu „zrób wizualizację panelu administracyjnego” to początek projektu, nie zadanie na jeden plik. Nie rysuj od razu.
+1. **Fundament** z `.hq/`, README, docs i kodu: po co i dla kogo, 3-5 głównych zadań użytkownika, jakie dane i skąd, zakres pierwszej wersji, ograniczenia (stos, marka, termin). Brakujące punkty **zaproponuj sam jako założenia** („Przyjmuję: administrator na komputerze; zadania: użytkownicy, zamówienia, zgłoszenia”) i zapytaj tylko o to, co zmienia projekt (≤3 pytania w jednym `AskUserQuestion`), nie o każdy punkt. Większy produkt lub system: `hq:product-management` (problem, wymagania) przed widokami; prototyp lub wizualizacja: wystarczy cel, użytkownik i 3-5 zadań.
+2. **Plan** w kilku liniach: fundament -> `hq:views` (ścieżki, mapa widoków, szara makieta; akceptuje użytkownik) -> `hq:look` (styl; akceptuje użytkownik) -> `hq:frontend`/`hq:backend` (kod). Zapisz w `.hq/pm/tasks.tsv` (skala Mini); stan etapów żyje w `.hq/views/status.md` i `.hq/look/status.md` (hook pokazuje go na starcie sesji), więc kontynuacja po długiej rozmowie lub w nowym czacie nie zaczyna od nowa.
+3. **Start** pierwszego kroku po odpowiedziach; każdy skill prowadzi swoje bramki.
+Wyjątek: tryb szkic albo odpowiedź „nie wiem, zrób coś” -> szkic z założeniami `[ZAŁOŻENIE]` (np. 3 różne pomysły, gdy o to proszono), opisany jako szkic; szkic to świadomy tryb, nie gorszy proces, ale nie zatwierdza żadnej bramki. Gdy fundament jest już w `.hq/` (np. `.hq/views/status.md`), zacznij od pierwszej niezamkniętej bramki.
 
 ## 1. Kontekst (tanio)
 Hook podaje na starcie: organizację (`org.md`), linię `Marka:` i `.hq/context.md` + `handoff.md` - nie czytaj ich ponownie. Dociągaj tylko `.hq/pm/tasks.tsv`, gdy wybierasz następne zadanie.
@@ -40,7 +57,7 @@ Wybierz **jeden** wiersz. Skill domenowy wczytaj (Skill) dopiero po wyborze; jeg
 | AI: model, agent, RAG, koszt tokenów, polityka AI | skill `hq:ai-strategy` |
 | backend, API, baza, integracje, authz, CI/CD, awaria produkcji | skill `hq:backend` |
 | frontend: komponenty, stan, integracja API w kliencie, wydajność/a11y UI | skill `hq:frontend` |
-| plan widoków przed kodem: jakie podstrony/ekrany, co na nich i w jakiej kolejności, makieta, wireframe, mapa strony, sitemap, mobile-first, struktura pod SEO | skill `hq:views` |
+| plan widoków przed kodem: panel administracyjny, dashboard aplikacji, „wizualizacja” ekranu, jakie podstrony/ekrany, co na nich i w jakiej kolejności, makieta, wireframe, mapa strony, sitemap, mobile-first, struktura pod SEO | skill `hq:views` |
 | wygląd/styl UI po makiecie: kierunek wizualny, kolory i fonty interfejsu, tokeny, ruch, hover, efekty, trendy (np. szkło), „żeby nie wyglądało jak AI” | skill `hq:look` |
 | UX/UI: badania, problem, design system, stany, prototyp, handoff | skill `hq:ux-ui` |
 | marka, brandbook, logo, kolory, ton, nazwa; niespójna marka w kodzie/materiałach, odtworzenie marki | skill `hq:brand` |
@@ -51,7 +68,7 @@ Wybierz **jeden** wiersz. Skill domenowy wczytaj (Skill) dopiero po wyborze; jeg
 | finanse firmy: cash flow, płynność, budżet roczny, kontrola wydatków, opłacalność | skill `hq:finance` |
 | CEO: strategia firmy, alokacja zasobów, runway, inwestorzy, kryzys | skill `hq:executive` |
 | COO: procesy, dostawcy, logistyka, KPI operacyjne, skalowanie | skill `hq:operations` |
-| analiza danych, KPI, ankieta, lejek, retencja, A/B, dashboard | skill `hq:data-analysis` |
+| analiza danych, KPI, ankieta, lejek, retencja, A/B, raport/wykresy z danych (dashboard jako analiza; panel/dashboard aplikacji to UI: `hq:views`) | skill `hq:data-analysis` |
 | marketing, kampania, social media, reklama, promocja | skill `hq:marketing` |
 | sponsorzy, partnerzy, klienci przed umową, oferta, pitch, negocjacje | skill `hq:partnerships` |
 | klient po umowie: onboarding, health score, QBR, odnowienie | skill `hq:customer-success` |
@@ -69,8 +86,9 @@ Kilka domen naraz: zacznij od tej, która blokuje pozostałe (zwykle produkt/zak
 ## 3. Delegowanie
 Paczka dla agenta, telegraficznie:
 - Cel (1 zdanie), ograniczenia, pliki/ścieżki, kryterium ukończenia.
-- Stała linia: "Czytaj fragmenty (grep, offset/limit), nie całe pliki; ogranicz wyniki poleceń (tail, tylko błędy); nie czytaj plików spoza listy; zwróć ≤N tokenów, bez kodu i logów."
+- Stała linia: "Czytaj fragmenty (grep, offset/limit), nie całe pliki; ogranicz wyniki poleceń (tail, tylko błędy); nie czytaj plików spoza listy; zwróć ≤N tokenów, bez kodu i logów; pierwsza linia STATUS: gotowe / częściowo / zablokowane." N: 200 przy prostym zadaniu, 400-600 przy analizie, audycie (bezpieczeństwo, architektura, elektronika) i porównaniu opcji, bo zastrzeżenia nie mogą wypaść dla limitu; dłuższy raport agent zapisuje w pliku i zwraca ścieżkę.
 - Zadanie dotyka wyglądu, tekstów lub komunikacji: dołącz linię `Marka:` z hooka (tryb + ścieżki). Agent czyta pliki sam; nie wklejaj brandbooka.
+- **Teksty dla ludzi** (UI, strona, dokument, raport, oferta, post): dołącz ścieżkę `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/writing.md` i polecenie sprawdzenia `scripts/textcheck.py`. To samo stosujesz do własnych odpowiedzi.
 - **Branding, grafika, kolory, ekrany, mockupy, wykresy = HTML/SVG + Playwright (lokalnie, tokeny w jednym pliku).** Zanim ruszysz, przeczytaj `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/visual.md`: sprawdź node i Playwright, tokeny marki, pętla render-zrzut-ocena. Figma/MCP tylko na żądanie użytkownika. Agenci renderują sami lub dają specyfikację.
 - Zadanie potrzebuje wiedzy z zewnątrz, pomysłów lub obrazu: dopisz do paczki, że zamiast zgadywać lub długo przeszukiwać sieć agent może oddać gotowy prompt w sekcji **PROMPT ZEWNĘTRZNY** (narzędzie, tryb, powód, prompt) wg `${CLAUDE_PLUGIN_ROOT}/skills/external-ai/SKILL.md`.
 - Proste zadanie: `model: haiku`; ważna decyzja na tanim agencie (np. researcher): `model: sonnet`.
@@ -90,7 +108,7 @@ Równolegle tylko zadania niezależne i bez wspólnych plików; ≤3 agentów na
 - Wynik krytyczny (bezpieczeństwo, produkcja, prawo, bramka projektu): niezależny recenzent (`hq:reviewer`, `hq:design-reviewer`), nie ten sam agent.
 - Zwrot pusty lub niepełny: jedno ponowienie z doprecyzowaną paczką (lub mocniejszym modelem), potem inny agent albo pytanie do użytkownika; nie pętl. Przyczynę wpisz do `handoff.md`.
 - Agenci się różnią: porównaj dowody (`[DOWÓD]` > `[ZAŁOŻENIE]`), sprawdź źródło lub uruchom test; nierozstrzygalne pokaż użytkownikowi z obiema wersjami.
-- Odpowiedź końcowa: wynik, pewność, co niezweryfikowane, następny krok.
+- Odpowiedź końcowa: wynik, pewność, co niezweryfikowane, następny krok. Pisana wg `references/writing.md`: od wyniku, bez wstępu i podsumowania.
 - Status w `.hq/pm/tasks.tsv` (schemat w `hq:pm`). Brak pliku przy większym zadaniu = `hq:pm` skala Mini.
 - Po etapie: `hq:context` (aktualizacja `context.md`; `handoff.md` ≤15 linii: zrobione, następne, blokery).
 

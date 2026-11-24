@@ -53,4 +53,18 @@ o=$(lg "Przeanalizuj odpowiedzi i wdróż zmiany. $(printf 'x%.0s' {1..500}) log
 o=$(lg "Zaprojektuj stronę agroturystyki, najpierw makieta"); ok "$o" "hq:views" "widoki: przypomnienie"
 o=$(lg "Makiety zatwierdzone, ustal styl strony z liquid glass"); ok "$o" "hq:look" "wygląd: przypomnienie"
 o=$(lg "Popraw literówkę w stopce"); no "$o" "hq:look" "wygląd: cisza bez prośby o styl"
+# intencje bez komendy: nowa rzecz -> fundament, teksty -> zasady pisania; "logowanie" to nie logo
+o=$(lg "zrób proszę wizualizację panelu administracyjnego"); ok "$o" "od fundamentu" "nowa rzecz: fundament"; no "$o" "Logo:" "panel bez logo"
+o=$(lg "chcę mieć stronę dla agroturystyki"); ok "$o" "od fundamentu" "nowa strona: fundament"
+o=$(lg "dodaj ekran logowania do aplikacji"); no "$o" "Logo:" "logowanie to nie logo"
+o=$(lg "napisz teksty na stronę główną"); ok "$o" "writing.md" "teksty: zasady pisania"; no "$o" '${CLAUDE_PLUGIN_ROOT}' "ścieżka rozwinięta"
+o=$(run "$T/solo"); ok "$o" "Pisanie (czat" "zasada pisania na starcie"
+# blok hq w CLAUDE.md starszy niż szablon = podpowiedź odświeżenia; aktualny = cisza
+printf '<!-- hq-begin -->\nstary\n<!-- hq-end -->\n' >"$T/solo/CLAUDE.md"; o=$(run "$T/solo"); ok "$o" "różni się od wersji" "stary blok"
+cp "$(dirname "$H")/../templates/CLAUDE.md" "$T/solo/CLAUDE.md"; o=$(run "$T/solo"); no "$o" "różni się" "aktualny blok"; no "$o" "Brak bloku hq" "blok jest"
+# etapy z plików statusu; doctor: konflikt znaczników = BŁĄD, aktualny projekt bez BŁĄD
+mkdir -p "$T/solo/.hq/views"; echo "# CTX solo" >"$T/solo/.hq/context.md"; printf 'status: approved\n' >"$T/solo/.hq/views/status.md"
+o=$(run "$T/solo"); ok "$o" "Etapy: views=approved" "etapy"
+DR="$(dirname "$H")/../skills/init/scripts/doctor.sh"; o=$(bash "$DR" "$T/solo"); rc=$?; [ $rc = 0 ] || { echo "FAIL: doctor zgłasza błąd w poprawnym projekcie: $o"; fail=1; }
+printf '<!-- hq-begin -->\n<!-- hq-begin -->\n<!-- hq-end -->\n' >"$T/solo/CLAUDE.md"; o=$(bash "$DR" "$T/solo"); ok "$o" "konflikt znaczników" "doctor: konflikt"
 [ $fail = 0 ] && echo "hooki: OK" || exit 1

@@ -6,11 +6,13 @@ COMPACT=${HQ_CTX_COMPACT:-60000}   # przyrost tokenów: podpowiedz /compact
 LIMIT=${HQ_CTX_TOKENS:-110000}     # przyrost tokenów: nowy czat
 STEP=${HQ_CTX_STEP:-50000}         # kolejne ostrzeżenie dopiero po takim przyroście
 DIR=${CLAUDE_PROJECT_DIR:-.}
+R=${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}   # katalog pluginu: ścieżki w podpowiedziach muszą działać w Bash
 
 in=$(cat)
 case "$1" in
   start)
     echo "[hq] Zadanie wieloetapowe lub domenowe: najpierw skill hq:orchestrator (routing), potem tylko wybrany skill/agent; skilli i referencji hq nie ładuj na zapas. Odpowiadaj w języku użytkownika."
+    echo "[hq] Pisanie (czat, UI, strony, raporty): od wyniku, bez wstępów, podsumowań i oczywistości (nie opisuj, co czytelnik widzi lub wie), konkret zamiast przymiotników, bez pustych słów (kompleksowy, intuicyjny, wyjątkowy, odkryj) i rytmu z szablonu. Pełne zasady: $R/skills/orchestrator/references/writing.md (agentom podawaj tę ścieżkę)."
     # Organizacja: .hq/org (slug lub "brak") ma pierwszeństwo, inaczej najdłuższy prefiks z $HQ_HOME/orgs/*/paths.
     HQ=${HQ_HOME:-$HOME/.hq}; real=$(cd "$DIR" 2>/dev/null && pwd -P); org=""; best=0
     if [ -f "$DIR/.hq/org" ]; then
@@ -47,9 +49,14 @@ case "$1" in
     [ -f "$prof" ] && line="${line:+$line · }profil=.hq/brand/brand.md"
     [ -f "$DIR/.hq/brand/brandbook.md" ] && line="${line:+$line · }własny=.hq/brand/brandbook.md"
     [ -n "$line" ] && echo "[hq] Marka: $line"
+    blk() { sed -n '/hq-begin/,/hq-end/p' "$1" 2>/dev/null; }
+    grep -qs 'hq-begin' "$DIR/CLAUDE.md" && [ "$(blk "$DIR/CLAUDE.md")" != "$(blk "$R/templates/CLAUDE.md")" ] && echo "[hq] Blok hq w CLAUDE.md różni się od wersji pluginu - zaproponuj /hq:init (odświeży tylko blok)."
     grep -qs 'hq-begin' "$DIR/CLAUDE.md" || echo "[hq] Brak bloku hq w CLAUDE.md - uruchom hq:init (dopisze przypomnienie o orkiestratorze, trwa po /compact i /clear)."
     [ -f "$DIR/.hq/context.md" ] || { echo "[hq] Brak .hq/context.md - przy dłuższej pracy zaproponuj hq:init (adopcja istniejącego kodu i marki)."; exit 0; }
     cat "$DIR/.hq/context.md"
+    # Etapy projektu (fundament -> widoki -> wygląd -> kod): źródło prawdy dla kontynuacji, nie pamięć rozmowy.
+    st=""; for k in views look; do f="$DIR/.hq/$k/status.md"; [ -f "$f" ] && st="$st${st:+ · }$k=$(sed -n 's/^status:[[:space:]]*\([a-z_]*\).*/\1/p' "$f" | head -1)"; done
+    [ -n "$st" ] && { echo; echo "[hq] Etapy: $st. Kontynuacja = pierwsza niezamknięta bramka; approved nadaje tylko użytkownik."; }
     [ -f "$DIR/.hq/handoff.md" ] && { echo; cat "$DIR/.hq/handoff.md"; }
     # Wątki równoległych czatów: każdy czat edytuje tylko swój plik (skill hq:context).
     th=("$DIR"/.hq/threads/*.md)
@@ -63,8 +70,16 @@ case "$1" in
     # Tylko początek wiadomości: słowo-klucz głęboko we wklejonym tekście (raport, odpowiedź innego AI) to nie prośba.
     head=$(jq -r '.prompt // empty' <<<"$in" | head -c 400)
     # Logo: zasady z referencji nie działały, gdy czat pomijał skill (kontynuacja rozmowy) - przypominamy przy każdej takiej prośbie.
-    if grep -qiE 'logo|sygnet|logotyp|logomark|znak marki|identyfikacj' <<<"$head"; then
+    if grep -qiE 'logo($|[^wu])|sygnet|logotyp|logomark|znak marki|identyfikacj[aię] wizualn' <<<"$head"; then
       echo "[hq] Logo: zanim cokolwiek narysujesz, wczytaj skill hq:brand i CAŁY references/logo.md (L00, L01, L5a). Warunek startu: znasz markę i ofertę, odbiorców, pożądane wrażenie, główne użycie, ograniczenia. Brak = zapytaj (≤5 pytań) albo zaproponuj 'studium formy' bez uzasadnienia biznesowego. Potem kierunki tekstem i STOP na wybór; dopiero zatwierdzone kierunki rysujesz. Różne motywy (człowiek, roślina, fala, strzałka) to nie różne kierunki. Nie dopisuj celów z nazwy, nie zmieniaj zakresu, opis musi być widoczny w rysunku."
+    fi
+    # Nowa rzecz bez komendy (strona, aplikacja, panel): orkiestrator planuje od fundamentu, nie rysuje od razu.
+    if grep -qiE '(zrób|zrob|stwórz|stworz|zbuduj|zaprojektuj|przygotuj|potrzebuj[^ ]*|chc[^ ]*) .{0,40}(stron|aplikacj|apk|panel|dashboard|kokpit|sklep|landing|ekran|wizualizacj|prototyp|serwis|portal|system)' <<<"$head"; then
+      echo "[hq] Prawdopodobnie nowa strona/aplikacja/panel (podpowiedź, nie decyzja: tryb ustal na całej wiadomości i stanie .hq/; kontynuacja, zmiana zakresowa i szkic mają własne ścieżki): wczytaj skill hq:orchestrator i zacznij od fundamentu (sekcja 'Nowa rzecz od zera'): cel, użytkownicy, główne zadania, dane, zakres -> plan widoków i szara makieta (hq:views) -> styl (hq:look) -> kod (hq:frontend/hq:backend). Brakujące punkty zaproponuj jako założenia i pytaj tylko o to, co zmienia projekt (≤3). 'Panel/dashboard aplikacji' to UI, nie analiza danych."
+    fi
+    # Teksty dla ludzi: zasady pisania zamiast domyślnego stylu modelu.
+    if grep -qiE '(napisz|zredaguj|przepisz|popraw|wygeneruj|przygotuj) .{0,30}(tekst|tre[śs]ć|opis|copy|post|mail|wiadomo|artyku|komunikat|nag[łl]ów|has[łl]|ofert|newsletter|bio|faq|instrukcj)|mikrocopy|microcopy|ux writing|brzmi jak ai|jak (pisało|napisało) ai' <<<"$head"; then
+      echo "[hq] Teksty: przed pisaniem wczytaj $R/skills/orchestrator/references/writing.md i głos marki (hq:brand, sekcja Język, jeśli jest). Po napisaniu: python3 $R/skills/orchestrator/scripts/textcheck.py <plik> i przepisz trafione zdania (nie podmieniaj na synonimy)."
     fi
     # Widoki: plan i makieta przed wyglądem i kodem nowej strony/aplikacji.
     if grep -qiE 'makiet|wireframe|mapa (strony|serwisu)|sitemap|podstron|widok(i|ów) (strony|aplikacji)|zaprojektuj (stron|aplikacj|ekran|widok)' <<<"$head"; then
