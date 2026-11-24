@@ -47,6 +47,17 @@ for s in sorted(glob.glob("skills/*/scripts/*.py")):
         r = subprocess.run([sys.executable, "-I", "-m", "py_compile", s], capture_output=True, text=True)
         if r.returncode:
             err.append(f"{s}: błąd składni")
+# Skrypty Node (Playwright) szukają go w cwd: HQ_NODE_PROJECT = katalog z node_modules/playwright; kod 3 = brak, tylko uwaga.
+for s in sorted(glob.glob("skills/*/scripts/*.mjs")):
+    try:
+        r = subprocess.run(["node", os.path.abspath(s), "--test"], capture_output=True, text=True,
+                           cwd=os.environ.get("HQ_NODE_PROJECT", ROOT), timeout=300)
+    except FileNotFoundError:
+        print(f"uwaga: brak node, pominięto {s}"); continue
+    if r.returncode == 3:
+        print(f"uwaga: brak Playwright (HQ_NODE_PROJECT), pominięto selftest {s}")
+    elif r.returncode or "OK" not in r.stdout:
+        err.append(f"{s}: selftest nie przeszedł: {(r.stdout + r.stderr)[-200:]}")
 r = subprocess.run(["bash", os.path.join(ROOT, "tools", "test_hooks.sh")], capture_output=True, text=True)
 if r.returncode:
     err.append("hooki: " + r.stdout.strip())

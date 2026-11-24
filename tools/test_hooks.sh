@@ -48,4 +48,7 @@ o=$(PATH="$T/bin:$PATH" bash -c "$c"); rc=$?; [ $rc = 3 ] || { echo "FAIL: filtr
 lg() { jq -nc --arg p "$1" '{prompt:$p,transcript_path:"/brak",session_id:"lg"}' | TMPDIR="$T" HQ_REMIND_EVERY=999 bash "$H" check; }
 o=$(lg "Stwórz teraz 4 propozycje logo"); ok "$o" "Warunek startu" "logo: przypomnienie"
 o=$(lg "Napraw test w kalendarzu"); [ -z "$o" ] || { echo "FAIL: przypomnienie logo bez logo"; fail=1; }
+# słowo-klucz głęboko we wklejonym tekście = cisza; prośba o makietę = przypomnienie hq:views
+o=$(lg "Przeanalizuj odpowiedzi i wdróż zmiany. $(printf 'x%.0s' {1..500}) logotypy partnerów"); [ -z "$o" ] || { echo "FAIL: przypomnienie z głębi wklejonego tekstu"; fail=1; }
+o=$(lg "Zaprojektuj stronę agroturystyki, najpierw makieta"); ok "$o" "hq:views" "widoki: przypomnienie"
 [ $fail = 0 ] && echo "hooki: OK" || exit 1

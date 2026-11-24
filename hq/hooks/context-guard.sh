@@ -60,9 +60,15 @@ case "$1" in
     ;;
   check)
     command -v jq >/dev/null || exit 0
+    # Tylko początek wiadomości: słowo-klucz głęboko we wklejonym tekście (raport, odpowiedź innego AI) to nie prośba.
+    head=$(jq -r '.prompt // empty' <<<"$in" | head -c 400)
     # Logo: zasady z referencji nie działały, gdy czat pomijał skill (kontynuacja rozmowy) - przypominamy przy każdej takiej prośbie.
-    if jq -r '.prompt // empty' <<<"$in" | grep -qiE 'logo|sygnet|logotyp|logomark|znak marki|identyfikacj'; then
+    if grep -qiE 'logo|sygnet|logotyp|logomark|znak marki|identyfikacj' <<<"$head"; then
       echo "[hq] Logo: zanim cokolwiek narysujesz, wczytaj skill hq:brand i CAŁY references/logo.md (L00, L01, L5a). Warunek startu: znasz markę i ofertę, odbiorców, pożądane wrażenie, główne użycie, ograniczenia. Brak = zapytaj (≤5 pytań) albo zaproponuj 'studium formy' bez uzasadnienia biznesowego. Potem kierunki tekstem i STOP na wybór; dopiero zatwierdzone kierunki rysujesz. Różne motywy (człowiek, roślina, fala, strzałka) to nie różne kierunki. Nie dopisuj celów z nazwy, nie zmieniaj zakresu, opis musi być widoczny w rysunku."
+    fi
+    # Widoki: plan i makieta przed wyglądem i kodem nowej strony/aplikacji.
+    if grep -qiE 'makiet|wireframe|mapa (strony|serwisu)|sitemap|podstron|widok(i|ów) (strony|aplikacji)|zaprojektuj (stron|aplikacj|ekran|widok)' <<<"$head"; then
+      echo "[hq] Widoki: nowa strona/aplikacja/ekran = najpierw skill hq:views (ścieżki, mapa widoków, spis bloków z powodem, szare makiety mobile-first z wire.css, wirecheck). Wygląd (hq:ux-ui U4) i kod (hq:frontend) dopiero przy .hq/views/status.md = approved, który nadaje tylko użytkownik."
     fi
     f=$(jq -r '.transcript_path // empty' <<<"$in"); sid=$(jq -r '.session_id // "x"' <<<"$in")
     [ -f "$f" ] || exit 0

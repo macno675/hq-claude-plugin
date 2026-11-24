@@ -8,9 +8,8 @@ Synteza: potrzeby, bariery, persony/archetypy (krótkie: cel, kontekst, ogranicz
 ## U2 Definicja problemu (`problem.md`)
 Użytkownik · Potrzeba · Problem · Kontekst (kiedy, gdzie, urządzenie, stres/pośpiech) · Efekt · Miara sukcesu (liczbowa: czas zadania, odsetek ukończeń, błędy) · Poza zakresem.
 
-## U3 Architektura informacji i ścieżki
-IA: obszary produktu, nazwy (język użytkownika), co od razu, co głębiej, nawigacja, zachowanie przy dużej ilości treści; metody: mapa serwisu, sortowanie kart, test drzewa. Ścieżka (`flows.md`), dla każdego zadania: start -> kroki -> decyzje -> dane do wpisania -> rozgałęzienia -> **błędy** -> punkty powrotu/cofnięcia -> potwierdzenia -> punkty rezygnacji. Najkrócej, ale z krokiem ochronnym przy działaniach nieodwracalnych.
-Wireframe: szkielet bez stylu - priorytet treści, kolejność, rozmieszczenie głównej akcji, nawigacja, kontrolki, zachowanie bez danych, komunikaty i stany systemu. Pliki HTML/SVG w `wireframes/`.
+## U3 Widoki
+Architektura informacji, ścieżki, spis bloków i szare makiety: skill `hq:views` (`views/references/process.md`), artefakty w `.hq/views/`. Przegląd heurystyczny niżej stosuj na makietach i prototypie.
 
 ## Przegląd heurystyczny (gdy brak ludzi do testu) - 10 heurystyk Nielsena
 Widoczność stanu systemu · zgodność z językiem i światem użytkownika · kontrola i swoboda (cofnij/anuluj) · spójność i standardy · zapobieganie błędom · rozpoznawanie zamiast pamiętania · elastyczność i wydajność (skróty) · estetyka i minimalizm · pomoc w rozpoznaniu, diagnozie i naprawie błędów · pomoc i dokumentacja. Wynik: lista problemów z ważnością (blokujący/duży/mały), nie "podoba mi się".

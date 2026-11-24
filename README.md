@@ -1,7 +1,7 @@
 # hq: plugin do Claude Code
 
 Uniwersalny plugin dla dowolnej organizacji, projektu i miniprojektu. Czatujesz z Claude jak zawsze, a plugin w tle:
-- dobiera właściwego specjalistę (37 agentów, 30 skilli: kod, produkt, elektronika, marka, UX/UI, PM, budżet, marketing, prawo i inne);
+- dobiera właściwego specjalistę (37 agentów, 31 skilli: kod, produkt, elektronika, marka, UX/UI, plan widoków, PM, budżet, marketing, prawo i inne);
 - gdy trzeba wiedzy z zewnątrz, pomysłów albo obrazu, pisze gotowy prompt do Perplexity (zwykły lub Deep Research), ChatGPT lub Gemini i sprawdza odpowiedź, którą odeślesz;
 - pamięta projekt i organizację;
 - pilnuje spójnej marki;

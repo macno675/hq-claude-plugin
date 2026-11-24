@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIEW-HOME · makieta</title>
+<link rel="stylesheet" href="wire.css">
+</head>
+<body>
+<!-- Wzór hq:views: nocleg z bezpośrednią rezerwacją, strona startowa. Etykiety opisują typ i objętość, nie copy. -->
+<header>
+  <a href="/" data-nav aria-label="Strona główna"><span class="w-logo"></span></a>
+  <a href="tel:+48000000000" class="w-btn">Zadzwoń</a>
+  <nav aria-label="Główna"><ul>
+    <li><a href="/noclegi" data-nav>Noclegi</a></li><li><a href="/okolica" data-nav>Okolica</a></li><li><a href="/kontakt" data-nav>Kontakt</a></li>
+  </ul></nav>
+</header>
+<main>
+  <section data-block="BLOCK-HERO" data-p="1" data-why="co to i gdzie + start głównego zadania (TASK-BOOK)" class="w-split">
+    <div class="w-img r169" data-l="IMG 16:9 · obiekt w otoczeniu"></div>
+    <div>
+      <h1 data-l="H1 · typ obiektu + miejsce, 1-2 linie">Nazwa obiektu, miejscowość</h1>
+      <form>
+        <label for="d1">Przyjazd</label><input id="d1" type="date">
+        <label for="d2">Wyjazd</label><input id="d2" type="date">
+        <label for="g">Osoby</label><select id="g"><option>2</option></select>
+        <p><button class="w-btn primary block" data-cta="primary" data-action="check-availability">Sprawdź dostępność</button></p>
+      </form>
+    </div>
+  </section>
+  <section data-block="BLOCK-FACTS" data-p="2" data-why="szybka kwalifikacja: czy to dla mnie">
+    <ul class="w-grid" style="list-style:none;padding:0">
+      <li class="w-row"><span class="w-icon"></span><span class="w-txt" data-l="FAKT · 1 linia"></span></li>
+      <li class="w-row"><span class="w-icon"></span><span class="w-txt" data-l="FAKT · 1 linia"></span></li>
+      <li class="w-row"><span class="w-icon"></span><span class="w-txt" data-l="FAKT · 1 linia"></span></li>
+    </ul>
+  </section>
+  <section data-block="BLOCK-STAYS" data-p="1" data-why="wybór konkretnego noclegu: osoby, cena od">
+    <h2 data-l="H2 · noclegi">Noclegi</h2>
+    <div class="w-grid">
+      <article class="w-card"><div class="w-img" data-l="IMG 4:3 · nocleg"></div><h3 data-l="H3 · nazwa">Nocleg A</h3><div class="w-txt" data-l="osoby · cena od · 1 linia"></div><a class="w-btn" href="/noclegi/a">Zobacz</a></article>
+      <article class="w-card"><div class="w-img" data-l="IMG 4:3 · nocleg"></div><h3 data-l="H3 · nazwa">Nocleg B</h3><div class="w-txt" data-l="osoby · cena od · 1 linia"></div><a class="w-btn" href="/noclegi/b">Zobacz</a></article>
+    </div>
+  </section>
+  <section data-block="BLOCK-REVIEWS" data-p="2" data-why="obawa: czy mogę zaufać; przed końcowym CTA">
+    <h2 data-l="H2 · opinie">Opinie gości</h2>
+    <div class="w-txt" data-l="OPINIA · ocena, 2-4 linie, data, źródło"><i></i><i></i><i></i></div>
+    <a href="/opinie">Wszystkie opinie</a>
+  </section>
+  <section data-block="BLOCK-LOCATION" data-p="2" data-why="pytanie: czy dojadę, co w okolicy">
+    <h2 data-l="H2 · lokalizacja">Lokalizacja i dojazd</h2>
+    <div class="w-img map" data-l="MAPA · statyczna, link do nawigacji"></div>
+  </section>
+  <section data-block="BLOCK-FAQ" data-p="3" data-why="bariery przed rezerwacją: zwierzęta, anulowanie, parking">
+    <h2 data-l="H2 · pytania">Pytania</h2>
+    <details><summary>Pytanie 1</summary><div class="w-txt" data-l="ODP · 2-3 linie"></div></details>
+    <details><summary>Pytanie 2</summary><div class="w-txt" data-l="ODP · 2-3 linie"></div></details>
+  </section>
+</main>
+<div class="w-sticky mobile"><span class="w-txt" data-l="termin · cena od · pasek po przewinięciu formularza"></span><a class="w-btn primary" href="#d1" data-cta="primary" data-action="check-availability">Sprawdź dostępność</a></div>
+<footer><span class="w-txt" data-l="adres · telefon · godziny"></span><a href="/regulamin">Regulamin</a></footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+/* Prymitywy szarych makiet hq:views. Tylko szarości, font systemowy. Etykieta = atrybut data-l. */
+:root { --w0:#fff; --w1:#f2f2f2; --w2:#d9d9d9; --w3:#a6a6a6; --w4:#595959; --w5:#1a1a1a; --gap:16px; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.45 system-ui, sans-serif; color: var(--w5); background: var(--w0); }
+a { color: var(--w5); } :focus-visible { outline: 3px solid var(--w5); outline-offset: 2px; }
+header, footer { display: flex; align-items: center; justify-content: space-between; gap: var(--gap); padding: 12px var(--gap); background: var(--w1); }
+nav ul { display: flex; flex-wrap: wrap; gap: 4px 12px; list-style: none; margin: 0; padding: 0; }
+header a, nav a, footer a { display: inline-flex; align-items: center; min-height: 44px; padding: 12px 4px; color: var(--w5); }
+nav a[aria-current] { font-weight: 700; text-decoration: underline; }
+main > section, .w-sec { padding: 24px var(--gap); border-bottom: 1px dashed var(--w2); }
+h1 { font-size: 26px; margin: 0 0 8px; } h2 { font-size: 20px; margin: 0 0 12px; } h3 { font-size: 16px; margin: 0 0 6px; }
+/* Etykiety placeholderów (typ · zawartość · objętość) */
+[data-l]::before { content: attr(data-l); display: block; font: 12px/1.3 ui-monospace, monospace; color: var(--w4); }
+.w-img { background: var(--w2); aspect-ratio: 4/3; display: grid; place-items: center; width: 100%; }
+.w-img.r169 { aspect-ratio: 16/9; } .w-img.r11 { aspect-ratio: 1; } .w-img.map { aspect-ratio: 4/3; background: repeating-linear-gradient(45deg, var(--w2) 0 8px, var(--w1) 8px 16px); }
+.w-logo { display: inline-block; width: 96px; height: 32px; background: var(--w3); }
+.w-icon { width: 24px; height: 24px; background: var(--w3); border-radius: 4px; flex: none; }
+.w-txt { color: var(--w4); }
+.w-txt > i { display: block; height: 10px; margin: 8px 0; background: var(--w2); } .w-txt > i:last-child { width: 60%; }
+.w-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 44px; padding: 0 20px; border: 2px solid var(--w5); background: var(--w0); color: var(--w5); font: 600 15px system-ui, sans-serif; text-decoration: none; }
+.w-btn.primary { background: var(--w5); color: var(--w0); }
+.w-btn.block { display: flex; width: 100%; }
+label { display: block; font-size: 13px; color: var(--w4); margin: 8px 0 4px; }
+input, select, textarea { width: 100%; min-height: 48px; padding: 0 12px; border: 2px solid var(--w3); background: var(--w0); font: inherit; }
+.w-err { border-left: 4px solid var(--w5); padding: 8px 12px; background: var(--w1); }
+.w-card { border: 1px solid var(--w2); padding: 12px; display: grid; gap: 8px; }
+.w-list { display: grid; gap: var(--gap); }
+.w-row { display: flex; gap: 12px; align-items: center; }
+.w-grid { display: grid; gap: var(--gap); }
+.w-sticky { position: sticky; bottom: 0; z-index: 5; display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 12px var(--gap); background: var(--w1); border-top: 1px solid var(--w3); }
+details { border-top: 1px solid var(--w2); } summary { min-height: 48px; display: flex; align-items: center; cursor: pointer; font-weight: 600; }
+@media (min-width: 768px) { .w-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) {
+  main > section, .w-sec { padding: 40px max(var(--gap), calc((100% - 1120px) / 2)); }
+  .w-grid { grid-template-columns: repeat(3, 1fr); } .w-split { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
+  .w-sticky.mobile { display: none; } .w-img.map { aspect-ratio: 21/9; }
+}

@@ -16,7 +16,8 @@ Frontend developer to inżynier interfejsu, nie osoba "zamieniająca obrazek w k
 6. **Wydajność mierzona, nie zgadywana:** Core Web Vitals i dane rzeczywiste, nie tylko jednorazowy audyt. Nie deklaruj wyniku, którego nie zmierzyłeś (`[ZAŁOŻENIE]`/`[DOWÓD]`).
 7. **API to kontrakt** (`.hq/backend/openapi.yaml`): uzgadniasz z backendem, nie dopasowujesz się do przypadkowej odpowiedzi.
 8. **Frontend nie jest jedyną linią obrony:** nie ufaj danym z przeglądarki, backend autoryzuje i waliduje.
-9. **Tokeny z design systemu** (`tokens.css` z `hq:ux-ui`) jako jedyne źródło kolorów, odstępów, typografii; żadnych przypadkowych wartości.
+9. **Nowy widok tylko na zatwierdzonej makiecie:** `.hq/views/status.md` = `approved` obejmujący ten widok; brak = stop i propozycja `hq:views` (wyjątek: poprawka istniejącego widoku albo wyraźna decyzja użytkownika, zapisana w `decisions.md`). Struktura, kolejność bloków, nagłówki i linki `<a href>` jak w `.hq/views/specs/` i `seo.md`.
+10. **Tokeny z design systemu** (`tokens.css` z `hq:ux-ui`) jako jedyne źródło kolorów, odstępów, typografii; żadnych przypadkowych wartości.
 
 ## Jak pracujesz
 Ty (główny wątek) zatwierdzasz bramki z użytkownikiem; `hq:frontend-engineer` implementuje. Decyzje do użytkownika: kompromisy względem projektu, nowe zależności o dużym koszcie, strategie renderowania/hostingu (ADR), cele wydajnościowe. Weryfikuj w **przeglądarce** (wbudowanej lub innej dostępnej) (zrzuty, rozmiary okna, konsola, sieć), nie na słowo honoru. Artefakty w `.hq/frontend/` (`structure.md`, `state.md`, `perf.md`, `a11y.md`).

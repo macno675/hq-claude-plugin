@@ -1,6 +1,6 @@
 ---
 name: ux-ui
-description: UX i UI - badania, ścieżki, wireframe, design system, stany, dostępność, handoff.
+description: UX i UI - badania, problem, kierunek wizualny, design system, stany, dostępność, prototyp, handoff.
 ---
 
 # UX i UI: od problemu do wdrożonego interfejsu
@@ -19,7 +19,7 @@ UX odpowiada za **logikę doświadczenia** (czy użytkownik osiąga cel szybko i
 9. **Programiści wcześnie** (wykonalność, wydajność, gotowe komponenty), nie dopiero przy handoffie.
 
 ## Jak pracujesz
-Ty (główny wątek) zadajesz użytkownikowi pytania (`AskUserQuestion`, paczki ≤4, z opcjami i rekomendacją) i **pokazujesz przykłady do wyboru** (widżet wizualny, jeśli dostępny, albo plik HTML do otwarcia w przeglądarce: wireframe'y, 2 warianty wizualne, prototyp). Agenci (`ux-designer`, `ui-designer`) przygotowują artefakty i nie pytają użytkownika. Artefakty w `.hq/ux-ui/`; decyzje i powody w `decisions.md` (wspólne z `.hq/product/` jeśli istnieje).
+Ty (główny wątek) zadajesz użytkownikowi pytania (`AskUserQuestion`, paczki ≤4, z opcjami i rekomendacją) i **pokazujesz przykłady do wyboru** (widżet wizualny, jeśli dostępny, albo plik HTML do otwarcia w przeglądarce: makiety z `hq:views`, 2 warianty wizualne, prototyp). Agenci (`ux-designer`, `ui-designer`) przygotowują artefakty i nie pytają użytkownika. Artefakty w `.hq/ux-ui/`; decyzje i powody w `decisions.md` (wspólne z `.hq/product/` jeśli istnieje).
 
 **Skala:** Mini (1-3 ekrany, skrót U1 do pytań + U3-U6), Standard (pełne), Pełna (+ badania z użytkownikami, testy dostępności z technologiami asystującymi). Zapytaj na początku i o platformę (web, mobile, desktop, ekran urządzenia/embedded - wtedy dochodzą ograniczenia rozdzielczości, wejścia, pamięci).
 
@@ -28,12 +28,12 @@ Ty (główny wątek) zadajesz użytkownikowi pytania (`AskUserQuestion`, paczki 
 |---|---|---|---|
 | U1 Discovery i synteza: użytkownicy, cele, kontekst, konkurencja, dane, ograniczenia; potrzeby, bariery, persony/archetypy, user stories, hipotezy | `ux-designer` | `research.md` | - |
 | U2 **Definicja problemu**: użytkownik, potrzeba, problem, kontekst, efekt, miara sukcesu | `ux-designer` | `problem.md` | **użytkownik** |
-| U3 Architektura informacji, ścieżki (z błędami, rozgałęzieniami, punktami rezygnacji), wireframe'y, przegląd heurystyczny | `ux-designer` | `ia.md`, `flows.md`, `wireframes/` | **użytkownik** |
+| U3 **Widoki**: ścieżki, mapa widoków, spis bloków, szare makiety mobile-first, SEO, kontrola - skill `hq:views` (V0-V8) | `ux-designer` | `.hq/views/` | **użytkownik** (`status.md` = `approved`) |
 | U4 UI: brief, analiza treści, **dwa warianty kierunku wizualnego**, tokeny, komponenty ze stanami, ekrany ze wszystkimi stanami, dostępność | `ui-designer` | `tokens.css`, `design-system.md`, `screens/` | **użytkownik** (wybór wariantu) |
 | U5 Prototyp klikalny i testy użyteczności (skrypt, zadania, metryki; ludzi dostarcza użytkownik) | `ux-designer` + `ui-designer` | `prototype/`, `test-results.md` | - |
 | U6 Iteracja: obserwacja -> przyczyna -> hipoteza -> zmiana -> ponowny test | oba | zaktualizowane artefakty | **użytkownik** przy zmianach strukturalnych |
 | U7 Handoff i weryfikacja wdrożenia: paczka dla developerów (`hq:frontend`, przegląd handoffu przed kodem), współpraca w trakcie, porównanie wdrożenia ze specyfikacją | `ui-designer` | `handoff.md` | - |
-Przeglądy bramek U3, U4, U7: `hq:design-reviewer`. Nie przechodź dalej bez zatwierdzenia bramki.
+Przeglądy bramek U3, U4, U7: `hq:design-reviewer`. Nie przechodź dalej bez zatwierdzenia bramki; U4 rusza tylko na zatwierdzonych makietach (układ i kolejność bloków nie zmieniają się bez nowej wersji w `hq:views`).
 
 ## Reużywaj, co już jest
 Dane ilościowe o zachowaniach i wyniki ankiet: `hq:data-analysis`; research użytkowników i konkurencji: `hq:research`. Wzorce ekranów u konkurencji i "jak to robią najlepsi": prompt do Perplexity; streszczenie filmu o projektowaniu: Gemini; zdjęcia i koncepty: Gemini (`hq:external-ai`).
